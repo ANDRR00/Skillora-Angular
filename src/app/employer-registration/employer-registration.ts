@@ -52,6 +52,25 @@ export class EmployerRegistration {
   }
 
   language = inject(LanguageService)
+  
+  get passwordValue(): string {
+    return this.employerForm.get('password')?.value || '';
+  }
+
+  get passwordTouched(): boolean {
+    const control = this.employerForm.get('password');
+    return !!(control && (control.dirty || control.touched));
+  }
+
+  get passwordChecks() {
+    const value = this.passwordValue;
+    return [
+      { label: 'At least 12 characters', valid: value.length >= 12 },
+      { label: 'One uppercase letter', valid: /[A-Z]/.test(value) },
+      { label: 'One number', valid: /\d/.test(value) },
+      { label: 'One special character', valid: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(value) },
+    ];
+  }
 
   private showAlert(title: string, text: string, icon: 'success' | 'error' | 'warning' | 'info'): void {
     Swal.fire({

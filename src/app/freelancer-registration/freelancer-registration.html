@@ -1,62 +1,79 @@
 <div class="screen-inner">
-  <button class="back-btn" type="button" routerLink="/roleSelection" [attr.aria-label]="language.t('authBackBtn')">← {{ language.t('authBackBtn') }}</button>
+  <button class="back-btn" type="button" routerLink="/roleSelection" [attr.aria-label]="language.t('authBackBtn')">← {{
+    language.t('authBackBtn') }}</button>
   <div class="form-card wide">
     <p class="card-eyebrow small">{{ language.t('freelancerForm_cardNo') }}</p>
     <h2 id="freelancerFormHeading">{{ language.t('freelancerForm_heading') }}</h2>
     <p class="form-lede" id="freelancerFormLede">{{ language.t('freelancerForm_lede') }}</p>
 
-    <form
-      [formGroup]="freelancerForm"
-      (ngSubmit)="onSubmit()"
-      aria-labelledby="freelancerFormHeading"
-      aria-describedby="freelancerFormLede"
-    >
+    <form [formGroup]="freelancerForm" (ngSubmit)="onSubmit()" aria-labelledby="freelancerFormHeading"
+      aria-describedby="freelancerFormLede">
       <div class="form-row">
         <div class="form-group">
           <label for="fl_firstName">{{ language.t('freelancerForm_firstName') }}</label>
-          <input type="text" [placeholder]="language.t('freelancerForm_firstNamePlaceholder')" required aria-required="true" id="fl_firstName" formControlName="firstName">
+          <input type="text" [placeholder]="language.t('freelancerForm_firstNamePlaceholder')" required
+            aria-required="true" id="fl_firstName" formControlName="firstName">
         </div>
         <div class="form-group">
           <label for="fl_lastName">{{ language.t('freelancerForm_lastName') }}</label>
-          <input type="text" [placeholder]="language.t('freelancerForm_lastNamePlaceholder')" required aria-required="true" id="fl_lastName" formControlName="lastName">
+          <input type="text" [placeholder]="language.t('freelancerForm_lastNamePlaceholder')" required
+            aria-required="true" id="fl_lastName" formControlName="lastName">
         </div>
       </div>
 
       <div class="form-group full">
         <label for="fl_email">{{ language.t('freelancerForm_email') }}</label>
-        <input type="email" [placeholder]="language.t('freelancerForm_emailPlaceholder')" required aria-required="true" id="fl_email" formControlName="email">
+        <input type="email" [placeholder]="language.t('freelancerForm_emailPlaceholder')" required aria-required="true"
+          id="fl_email" formControlName="email">
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="fl_password">{{ language.t('freelancerForm_password') }}</label>
-          <input type="password" [placeholder]="language.t('freelancerForm_passwordPlaceholder')" required aria-required="true" id="fl_password" formControlName="password">
+          <input type="password" [placeholder]="language.t('freelancerForm_passwordPlaceholder')" required
+            aria-required="true" id="fl_password" formControlName="password">
+
+          @if (passwordTouched) {
+          <ul class="password-checklist">
+            @for (check of passwordChecks; track check.label) {
+            <li [class.met]="check.valid">
+              <span class="check-icon">{{ check.valid ? '✓' : '·' }}</span>
+              {{ check.label }}
+            </li>
+            }
+          </ul>
+          }
         </div>
         <div class="form-group">
           <label for="fl_repeatPassword">{{ language.t('freelancerForm_repeatPassword') }}</label>
-          <input type="password" [placeholder]="language.t('freelancerForm_repeatPasswordPlaceholder')" required aria-required="true" id="fl_repeatPassword" formControlName="repeatPassword">
+          <input type="password" [placeholder]="language.t('freelancerForm_repeatPasswordPlaceholder')" required
+            aria-required="true" id="fl_repeatPassword" formControlName="repeatPassword">
         </div>
       </div>
 
       <div class="form-row three">
         <div class="form-group">
           <label for="fl_city">{{ language.t('freelancerForm_city') }}</label>
-          <input type="text" [placeholder]="language.t('freelancerForm_cityPlaceholder')" required aria-required="true" id="fl_city" formControlName="city">
+          <input type="text" [placeholder]="language.t('freelancerForm_cityPlaceholder')" required aria-required="true"
+            id="fl_city" formControlName="city">
         </div>
         <div class="form-group">
           <label for="fl_street">{{ language.t('freelancerForm_street') }}</label>
-          <input type="text" [placeholder]="language.t('freelancerForm_streetPlaceholder')" required aria-required="true" id="fl_street" formControlName="street">
+          <input type="text" [placeholder]="language.t('freelancerForm_streetPlaceholder')" required
+            aria-required="true" id="fl_street" formControlName="street">
         </div>
         <div class="form-group">
           <label for="fl_postalCode">{{ language.t('freelancerForm_postalCode') }}</label>
-          <input type="text" [placeholder]="language.t('freelancerForm_postalCodePlaceholder')" required aria-required="true" id="fl_postalCode" formControlName="postalCode">
+          <input type="text" [placeholder]="language.t('freelancerForm_postalCodePlaceholder')" required
+            aria-required="true" id="fl_postalCode" formControlName="postalCode">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="fl_personalId">{{ language.t('freelancerForm_personalId') }}</label>
-          <input type="text" [placeholder]="language.t('freelancerForm_personalIdPlaceholder')" required aria-required="true" id="fl_personalId" formControlName="personalId">
+          <input type="text" [placeholder]="language.t('freelancerForm_personalIdPlaceholder')" required
+            aria-required="true" id="fl_personalId" formControlName="personalId">
         </div>
         <div class="form-group">
           <label for="fl_birthDate">{{ language.t('freelancerForm_birthDate') }}</label>
@@ -66,17 +83,20 @@
 
       <div class="form-group full">
         <label for="fl_aboutMe">{{ language.t('freelancerForm_aboutMe') }}</label>
-        <textarea [placeholder]="language.t('freelancerForm_aboutMePlaceholder')" id="fl_aboutMe" formControlName="aboutMe"></textarea>
+        <textarea [placeholder]="language.t('freelancerForm_aboutMePlaceholder')" id="fl_aboutMe"
+          formControlName="aboutMe"></textarea>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="fl_portfolio">{{ language.t('freelancerForm_portfolio') }}</label>
-          <input type="url" [placeholder]="language.t('freelancerForm_portfolioPlaceholder')" id="fl_portfolio" formControlName="portfolio">
+          <input type="url" [placeholder]="language.t('freelancerForm_portfolioPlaceholder')" id="fl_portfolio"
+            formControlName="portfolio">
         </div>
         <div class="form-group">
           <label for="fl_resume">{{ language.t('freelancerForm_resume') }}</label>
-          <input type="file" id="fl_resume" accept=".pdf,.doc,.docx" aria-describedby="fl_resumeHint" (change)="onResumeSelected($event)">
+          <input type="file" id="fl_resume" accept=".pdf,.doc,.docx" aria-describedby="fl_resumeHint"
+            (change)="onResumeSelected($event)">
           <span id="fl_resumeHint" class="visually-hidden">{{ language.t('freelancerForm_resumeHint') }}</span>
         </div>
       </div>
@@ -84,18 +104,15 @@
       <label class="checkbox">
         <input type="checkbox" id="fl_terms" required aria-required="true" formControlName="terms">
         <span>
-          {{ language.t('employerForm_termsPrefix') }} <strong>{{ language.t('employerForm_termsOfService') }}</strong>{{ language.t('employerForm_termsMiddle') }}
-          <strong>{{ language.t('employerForm_userAgreement') }}</strong> {{ language.t('employerForm_termsAnd') }} <strong>{{ language.t('employerForm_privacyPolicy') }}</strong>{{ language.t('employerForm_termsEnd') }}
+          {{ language.t('employerForm_termsPrefix') }} <strong>{{ language.t('employerForm_termsOfService')
+            }}</strong>{{ language.t('employerForm_termsMiddle') }}
+          <strong>{{ language.t('employerForm_userAgreement') }}</strong> {{ language.t('employerForm_termsAnd') }}
+          <strong>{{ language.t('employerForm_privacyPolicy') }}</strong>{{ language.t('employerForm_termsEnd') }}
         </span>
       </label>
 
-      <button
-        class="submit-btn"
-        type="submit"
-        id="fl_submitBtn"
-        [disabled]="isSubmitting"
-        [attr.aria-busy]="isSubmitting"
-      >
+      <button class="submit-btn" type="submit" id="fl_submitBtn" [disabled]="isSubmitting"
+        [attr.aria-busy]="isSubmitting">
         {{ isSubmitting ? language.t('employerForm_submitting') : language.t('freelancerForm_submit') }}
       </button>
     </form>

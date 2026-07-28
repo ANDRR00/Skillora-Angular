@@ -1,79 +1,94 @@
 <div class="screen-inner">
-  <button class="back-btn" type="button" routerLink="/roleSelection" [attr.aria-label]="language.t('authBackBtn')">← {{ language.t('authBackBtn') }}</button>
+  <button class="back-btn" type="button" routerLink="/roleSelection" [attr.aria-label]="language.t('authBackBtn')">← {{
+    language.t('authBackBtn') }}</button>
   <div class="form-card wide">
     <p class="card-eyebrow small">{{ language.t('employerForm_cardNo') }}</p>
     <h2 id="employerFormHeading">{{ language.t('employerForm_heading') }}</h2>
     <p class="form-lede" id="employerFormLede">{{ language.t('employerForm_lede') }}</p>
 
-    <form
-      [formGroup]="employerForm"
-      (ngSubmit)="onSubmit()"
-      aria-labelledby="employerFormHeading"
-      aria-describedby="employerFormLede"
-    >
+    <form [formGroup]="employerForm" (ngSubmit)="onSubmit()" aria-labelledby="employerFormHeading"
+      aria-describedby="employerFormLede">
       <div class="form-row">
         <div class="form-group">
           <label for="co_companyName">{{ language.t('employerForm_companyName') }}</label>
-          <input id="co_companyName" type="text" formControlName="companyName" [placeholder]="language.t('employerForm_companyNamePlaceholder')" required aria-required="true">
+          <input id="co_companyName" type="text" formControlName="companyName"
+            [placeholder]="language.t('employerForm_companyNamePlaceholder')" required aria-required="true">
         </div>
         <div class="form-group">
           <label for="co_companyOrigin">{{ language.t('employerForm_companyOrigin') }}</label>
-          <input id="co_companyOrigin" type="text" formControlName="companyOrigin" [placeholder]="language.t('employerForm_companyOriginPlaceholder')" required aria-required="true">
+          <input id="co_companyOrigin" type="text" formControlName="companyOrigin"
+            [placeholder]="language.t('employerForm_companyOriginPlaceholder')" required aria-required="true">
         </div>
       </div>
 
       <div class="form-group full">
         <label for="co_email">{{ language.t('employerForm_email') }}</label>
-        <input id="co_email" type="email" formControlName="email" [placeholder]="language.t('employerForm_emailPlaceholder')" required aria-required="true">
+        <input id="co_email" type="email" formControlName="email"
+          [placeholder]="language.t('employerForm_emailPlaceholder')" required aria-required="true">
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="co_password">{{ language.t('employerForm_password') }}</label>
-          <input id="co_password" type="password" formControlName="password" [placeholder]="language.t('employerForm_passwordPlaceholder')" required aria-required="true">
+          <input id="co_password" type="password" formControlName="password"
+            [placeholder]="language.t('employerForm_passwordPlaceholder')" required aria-required="true">
+
+          @if (passwordTouched) {
+          <ul class="password-checklist">
+            @for (check of passwordChecks; track check.label) {
+            <li [class.met]="check.valid">
+              <span class="check-icon">{{ check.valid ? '✓' : '·' }}</span>
+              {{ check.label }}
+            </li>
+            }
+          </ul>
+          }
         </div>
         <div class="form-group">
           <label for="co_repeatPassword">{{ language.t('employerForm_repeatPassword') }}</label>
-          <input id="co_repeatPassword" type="password" formControlName="repeatPassword" [placeholder]="language.t('employerForm_repeatPasswordPlaceholder')" required aria-required="true">
+          <input id="co_repeatPassword" type="password" formControlName="repeatPassword"
+            [placeholder]="language.t('employerForm_repeatPasswordPlaceholder')" required aria-required="true">
         </div>
       </div>
 
       <div class="form-group full">
         <label for="co_companyAddress">{{ language.t('employerForm_companyAddress') }}</label>
-        <input id="co_companyAddress" type="text" formControlName="companyAddress" [placeholder]="language.t('employerForm_companyAddressPlaceholder')" required aria-required="true">
+        <input id="co_companyAddress" type="text" formControlName="companyAddress"
+          [placeholder]="language.t('employerForm_companyAddressPlaceholder')" required aria-required="true">
       </div>
 
       <div class="form-group full">
         <label for="co_companyDescription">{{ language.t('employerForm_companyDescription') }}</label>
-        <textarea id="co_companyDescription" formControlName="companyDescription" [placeholder]="language.t('employerForm_companyDescriptionPlaceholder')" required aria-required="true"></textarea>
+        <textarea id="co_companyDescription" formControlName="companyDescription"
+          [placeholder]="language.t('employerForm_companyDescriptionPlaceholder')" required
+          aria-required="true"></textarea>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="co_companyWebsite">{{ language.t('employerForm_companyWebsite') }}</label>
-          <input id="co_companyWebsite" type="url" formControlName="companyWebsite" [placeholder]="language.t('employerForm_companyWebsitePlaceholder')">
+          <input id="co_companyWebsite" type="url" formControlName="companyWebsite"
+            [placeholder]="language.t('employerForm_companyWebsitePlaceholder')">
         </div>
         <div class="form-group">
           <label for="co_companyPhone">{{ language.t('employerForm_companyPhone') }}</label>
-          <input id="co_companyPhone" type="tel" formControlName="companyPhone" [placeholder]="language.t('employerForm_companyPhonePlaceholder')" required aria-required="true">
+          <input id="co_companyPhone" type="tel" formControlName="companyPhone"
+            [placeholder]="language.t('employerForm_companyPhonePlaceholder')" required aria-required="true">
         </div>
       </div>
 
       <label class="checkbox">
         <input type="checkbox" id="co_terms" formControlName="terms" required aria-required="true">
         <span>
-          {{ language.t('employerForm_termsPrefix') }} <strong>{{ language.t('employerForm_termsOfService') }}</strong>{{ language.t('employerForm_termsMiddle') }}
-          <strong>{{ language.t('employerForm_userAgreement') }}</strong> {{ language.t('employerForm_termsAnd') }} <strong>{{ language.t('employerForm_privacyPolicy') }}</strong>{{ language.t('employerForm_termsEnd') }}
+          {{ language.t('employerForm_termsPrefix') }} <strong>{{ language.t('employerForm_termsOfService')
+            }}</strong>{{ language.t('employerForm_termsMiddle') }}
+          <strong>{{ language.t('employerForm_userAgreement') }}</strong> {{ language.t('employerForm_termsAnd') }}
+          <strong>{{ language.t('employerForm_privacyPolicy') }}</strong>{{ language.t('employerForm_termsEnd') }}
         </span>
       </label>
 
-      <button
-        class="submit-btn"
-        type="submit"
-        id="co_submitBtn"
-        [disabled]="isSubmitting"
-        [attr.aria-busy]="isSubmitting"
-      >
+      <button class="submit-btn" type="submit" id="co_submitBtn" [disabled]="isSubmitting"
+        [attr.aria-busy]="isSubmitting">
         {{ isSubmitting ? language.t('employerForm_submitting') : language.t('employerForm_submit') }}
       </button>
     </form>

@@ -28,8 +28,8 @@
   padding: 1.75rem 1.8rem 1.5rem;
   color: var(--text-dark);
   box-shadow:
-    0 1px 0 rgba(255,255,255,0.5) inset,
-    0 20px 40px -16px rgba(0,0,0,0.55);
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 20px 40px -16px rgba(0, 0, 0, 0.55);
   margin: 0 auto;
 
   &.wide {
@@ -99,6 +99,47 @@
     }
   }
 
+  .password-checklist {
+    list-style: none;
+    margin: .35rem 0 0;
+    padding: .55rem .65rem;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .04em;
+      color: #9a917a;
+      transition: color .18s ease;
+
+      .check-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        color: inherit;
+      }
+
+      &.met {
+        color: #4a7a4a;
+
+        .check-icon {
+          color: var(--brass);
+        }
+      }
+    }
+  }
+
   label {
     font-family: var(--font-mono);
     font-size: .68rem;
@@ -107,13 +148,14 @@
     color: #6b6047;
   }
 
-  input, textarea {
+  input,
+  textarea {
     font-family: var(--font-body);
     font-size: .92rem;
     padding: .65rem .75rem;
     border-radius: 8px;
     border: 1.5px solid var(--line-soft);
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     color: var(--text-dark);
     outline: none;
 
@@ -123,7 +165,7 @@
 
     &:focus {
       border-color: var(--brass);
-      background: rgba(255,255,255,0.8);
+      background: rgba(255, 255, 255, 0.8);
     }
   }
 
@@ -167,6 +209,6 @@
     font-weight: 600;
     font-size: .94rem;
     cursor: pointer;
-    box-shadow: 0 10px 22px -10px rgba(184,134,59,0.55);
+    box-shadow: 0 10px 22px -10px rgba(184, 134, 59, 0.55);
   }
 }
