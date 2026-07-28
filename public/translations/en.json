@@ -2,5 +2,6 @@
   "home": "Home",
   "allProjects": "All Projects",
   "allServices": "All Services",
-  "about": "About"
+  "about": "About",
+  "logOutBtn" : "Log Out"
 }

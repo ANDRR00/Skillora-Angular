@@ -31,7 +31,7 @@
     <div class="profile" (click)="goToProfile()" role="button" tabindex="0" aria-label="Go to your profile">
       <i class="fa-solid fa-user" style="color: #9ba9c1;" aria-hidden="true"></i>
     </div>
-    <button (click)="logout()" class="logout" aria-label="Log out of your account">Log Out</button>
+    <button (click)="logout()" class="logout" aria-label="Log out of your account">{{languageService.t('logOutBtn')}}</button>
     } @else {
     <div class="auth">
       <button routerLink="login" aria-label="Log in to your account">Log In</button>
