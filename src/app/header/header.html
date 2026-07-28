@@ -34,8 +34,8 @@
     <button (click)="logout()" class="logout" aria-label="Log out of your account">{{languageService.t('logOutBtn')}}</button>
     } @else {
     <div class="auth">
-      <button routerLink="login" aria-label="Log in to your account">Log In</button>
-      <button routerLink="roleSelection" aria-label="Register a new account">Register</button>
+      <button routerLink="login" aria-label="Log in to your account">{{languageService.t('logInBtn')}}</button>
+      <button routerLink="roleSelection" aria-label="Register a new account">{{languageService.t('registerBtn')}}</button>
     </div>
     }
   </div>

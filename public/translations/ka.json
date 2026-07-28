@@ -1,6 +1,8 @@
 {
   "home": "მთავარი",
   "allProjects": "პროექტები",
+  "registerBtn": "რეგისტრაცია",
+  "logInBtn": "შესვლა",
   "allServices": "სერვისები",
   "about": "ჩვენ შესახებ",
   "logOutBtn": "გასვლა",
