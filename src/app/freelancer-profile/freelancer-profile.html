@@ -1,0 +1,95 @@
+<main aria-labelledby="freelancerNameHeading">
+
+    <section class="profileHeader">
+        <div class="personLeft">
+            <div class="profilePicture">
+                <img [src]="profile()?.profile_pic_url || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'"
+                    [alt]="(profile()?.first_name ?? 'Freelancer') + ' profile picture'" id="profilePic">
+            </div>
+        </div>
+        <div class="personRight">
+            <div class="personInfo">
+                <div class="statusTop" style="padding: 0px 8px;">
+                    freelancer
+                </div>
+                <div class="infoLower">
+                    <span class="name" id="freelancerNameHeading">{{ profile()?.first_name }} {{ profile()?.last_name }}</span>
+                    <div class="location">
+                        <img src="images/realLocation.svg" alt="" aria-hidden="true">
+                        <span style="color: #8894a8;" class="locationSpan">{{ profile()?.city }}, {{ profile()?.street
+                            }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="personAge">
+                <div class="age" style="color: #8894a8;" id="ageLabel">age</div>
+                <span class="ageBox" aria-labelledby="ageLabel">{{ age() }}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="profileAbout" aria-labelledby="aboutSectionHeading">
+        <article class="aboutInfo">
+            <p id="aboutSectionHeading">about me</p>
+            <p class="aboutMe">{{ profile()?.about_me }}</p>
+        </article>
+        <hr>
+        <div class="resumePortfolioWrapper">
+            <div class="resumePortfolio">
+                <div class="portfolio">
+                    <span id="portfolioLabel">portfolio</span>
+                    <p><img src="images/web-svgrepo-com.svg" alt="" aria-hidden="true">
+                        <a [href]="profile()?.portfolio" target="_blank" rel="noopener" class="website" aria-labelledby="portfolioLabel">{{ profile()?.portfolio }}</a>
+                    </p>
+                </div>
+                <div class="resume">
+                    <span id="resumeLabel">resume</span>
+                    <button class="resumeDownload" (click)="downloadResume()" type="button" aria-labelledby="resumeLabel">
+                        <img src="images/download.svg" alt="" aria-hidden="true">
+                        download resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="projectSection" aria-labelledby="projectsSectionHeading">
+        <div class="projectBar">
+            <div class="projectsHeader">
+                <p id="projectsSectionHeading">Projects</p>
+                <span>projects status and count</span>
+            </div>
+            <button class="allProjectsView" type="button" aria-label="View all projects by this freelancer">View All</button>
+        </div>
+
+        <div class="projects">
+            <div class="projectCard">
+                <div class="upperCard">
+                    <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=340&fit=crop&auto=format"
+                        alt="Patchwork CMS project preview">
+                </div>
+                <div class="lowerCard">
+                    <div class="projectTitle" id="project1CardTitle">
+                        pathcwork CMS
+                    </div>
+                    <div class="projectDetails">
+                        <p class="projectBody">
+                            Headless CMS dashboard for editorial teams. Features real-time collaboration and a custom
+                            rich text editor.
+                        </p>
+                        <div class="projectNeeds" aria-label="Skills used">
+                            <button class="skill" type="button">React</button>
+                            <button class="skill" type="button">Figma</button>
+                            <button class="skill" type="button">TypeScript</button>
+                        </div>
+                        <button class="projectView" type="button" aria-label="View project: Patchwork CMS">
+                            <img src="images/open-in-new-svgrepo-com.svg" alt="" aria-hidden="true">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,61 @@
+<header>
+  <div class="leftHeader">
+    <button class="burger-btn" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobileNav" [attr.aria-label]="menuOpen() ? 'Close navigation menu' : 'Open navigation menu'">
+      <span class="burger-icon" [class.open]="menuOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <button routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">{{languageService.t('home')}}</button>
+      <button routerLink="/allProjects" routerLinkActive="active-link">{{languageService.t('allProjects')}}</button>
+      <button routerLink="/allServices" routerLinkActive="active-link">{{languageService.t('allServices')}}</button>
+      <button routerLink="/about" routerLinkActive="active-link">{{languageService.t('about')}}</button>
+    </nav>
+  </div>
+
+  <div class="centerHeader">
+    <img src="images/skilloraNoBackground.svg" alt="Skillora" routerLink="" role="button" tabindex="0"
+      aria-label="Go to homepage">
+  </div>
+
+  <div class="rightHeader">
+    <button class="lang-toggle" type="button" (click)="toggleLanguage()"
+      [attr.aria-label]="currentLang() === 'ka' ? 'Switch to English' : 'ქართულზე გადართვა'">
+      {{ currentLang() === 'ka' ? 'EN' : 'ქა' }}
+    </button>
+    @if (isLoggedIn()) {
+    <div class="profile" (click)="goToProfile()" role="button" tabindex="0" aria-label="Go to your profile">
+      <i class="fa-solid fa-user" style="color: #9ba9c1;" aria-hidden="true"></i>
+    </div>
+    <button (click)="logout()" class="logout" aria-label="Log out of your account">Log Out</button>
+    } @else {
+    <div class="auth">
+      <button routerLink="login" aria-label="Log in to your account">Log In</button>
+      <button routerLink="roleSelection" aria-label="Register a new account">Register</button>
+    </div>
+    }
+  </div>
+</header>
+
+@if (menuOpen()) {
+<div class="nav-backdrop" (click)="closeMenu()" aria-hidden="true"></div>
+}
+
+<nav id="mobileNav" class="mobile-nav" [class.open]="menuOpen()" [attr.inert]="menuOpen() ? null : ''"
+  aria-label="Main navigation">
+  <button class="mobile-nav-close" type="button" (click)="closeMenu()" aria-label="Close navigation menu">✕</button>
+  <button class="lang-toggle mobile" type="button" (click)="toggleLanguage()"
+    [attr.aria-label]="currentLang() === 'ka' ? 'Switch to English' : 'ქართულზე გადართვა'">
+    {{ currentLang() === 'ka' ? 'Switch to English' : 'ქართულზე გადართვა' }}
+  </button>
+
+  <button routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}"
+    (click)="closeMenu()">Home</button>
+  <button routerLink="/allProjects" routerLinkActive="active-link" (click)="closeMenu()">All Projects</button>
+  <button routerLink="/allServices" routerLinkActive="active-link" (click)="closeMenu()">All Services</button>
+  <button routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</button>
+</nav>

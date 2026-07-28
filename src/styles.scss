@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+  --ink:        #14181f;
+  --ink-2:      #1b212b;
+  --ink-3:      #232a36;
+  --paper:      #efe8d8;
+  --paper-2:    #e4dabf;
+  --brass:      #b8863b;
+  --brass-2:    #d9ac66;
+  --slate:      #8894a8;
+  --text-dark:  #221e17;
+  --text-light: #f4efe1;
+  --line:       rgba(244,239,225,0.14);
+  --line-soft:  rgba(34,30,23,0.16);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", -apple-system, sans-serif;
+  --font-mono:    "IBM Plex Mono", monospace;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:
+    radial-gradient(ellipse 900px 600px at 50% -10%, #1e2532 0%, var(--ink) 55%),
+    var(--ink);
+  color:var(--text-light);
+}

@@ -1,0 +1,79 @@
+<div class="screen-inner">
+  <button class="back-btn" type="button" routerLink="/roleSelection" aria-label="Go back to role selection">← Back</button>
+  <div class="form-card wide">
+    <p class="card-eyebrow small">Card No. 02A</p>
+    <h2 id="employerFormHeading">Employer Information</h2>
+    <p class="form-lede" id="employerFormLede">Complete your company information.</p>
+
+    <form
+      [formGroup]="employerForm"
+      (ngSubmit)="onSubmit()"
+      aria-labelledby="employerFormHeading"
+      aria-describedby="employerFormLede"
+    >
+      <div class="form-row">
+        <div class="form-group">
+          <label for="co_companyName">Company Name *</label>
+          <input id="co_companyName" type="text" formControlName="companyName" placeholder="Enter company name" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="co_companyOrigin">Company Origin *</label>
+          <input id="co_companyOrigin" type="text" formControlName="companyOrigin" placeholder="Country / City" required aria-required="true">
+        </div>
+      </div>
+
+      <div class="form-group full">
+        <label for="co_email">Email *</label>
+        <input id="co_email" type="email" formControlName="email" placeholder="example@gmail.com" required aria-required="true">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="co_password">Password *</label>
+          <input id="co_password" type="password" formControlName="password" placeholder="Enter password" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="co_repeatPassword">Repeat Password *</label>
+          <input id="co_repeatPassword" type="password" formControlName="repeatPassword" placeholder="Repeat password" required aria-required="true">
+        </div>
+      </div>
+
+      <div class="form-group full">
+        <label for="co_companyAddress">Company Address *</label>
+        <input id="co_companyAddress" type="text" formControlName="companyAddress" placeholder="Company address" required aria-required="true">
+      </div>
+
+      <div class="form-group full">
+        <label for="co_companyDescription">What does your company do? *</label>
+        <textarea id="co_companyDescription" formControlName="companyDescription" placeholder="Describe your company and services..." required aria-required="true"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="co_companyWebsite">Company Website</label>
+          <input id="co_companyWebsite" type="url" formControlName="companyWebsite" placeholder="https://example.com">
+        </div>
+        <div class="form-group">
+          <label for="co_companyPhone">Company Phone Number *</label>
+          <input id="co_companyPhone" type="tel" formControlName="companyPhone" placeholder="+995 5XX XX XX XX" required aria-required="true">
+        </div>
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" id="co_terms" formControlName="terms" required aria-required="true">
+        <span>Yes, I understand and agree to the <strong>Terms of Service</strong>, including the <strong>User
+            Agreement</strong> and <strong>Privacy Policy</strong>.</span>
+      </label>
+
+      <button
+        class="submit-btn"
+        type="submit"
+        id="co_submitBtn"
+        [disabled]="isSubmitting"
+        [attr.aria-busy]="isSubmitting"
+      >
+        {{ isSubmitting ? 'Creating Account...' : originalBtnText }}
+      </button>
+    </form>
+  </div>
+</div>

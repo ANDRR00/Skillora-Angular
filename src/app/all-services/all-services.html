@@ -1,0 +1,78 @@
+<div class="hero-content">
+  <span class="eyebrow">SKILLORA MARKETPLACE</span>
+  <h1 class="title" id="allServicesHeading">Explore Services</h1>
+  <p class="subtitle">
+    Browse services offered by verified freelancers and find the right talent for your next project.
+  </p>
+</div>
+
+<div class="filters" role="group" aria-label="Filter services by category">
+  @for (category of categories(); track category.value) {
+    <button
+      class="filter-pill"
+      [class.active]="activeCategory() === category.value"
+      [attr.aria-pressed]="activeCategory() === category.value"
+      (click)="selectCategory(category.value)"
+    >
+      {{ category.label }}
+    </button>
+  } @empty {
+    <span class="filters-loading" role="status">Loading categories…</span>
+  }
+</div>
+
+<div class="currency-switcher" role="group" aria-label="Select display currency">
+  @for (currency of currencies; track currency.code) {
+    <button
+      type="button"
+      class="currency-pill"
+      [class.active]="activeCurrency() === currency.code"
+      [attr.aria-pressed]="activeCurrency() === currency.code"
+      (click)="selectCurrency(currency.code)"
+    >
+      {{ currency.symbol }} {{ currency.label }}
+    </button>
+  }
+</div>
+
+<section class="projects-grid-section" aria-labelledby="allServicesHeading">
+  <div class="projects-grid">
+    @for (service of filteredServices(); track service.id) {
+      <article class="project-card" [attr.aria-label]="service.title">
+        <div class="card-image-wrap">
+          <img [src]="service.imageUrl" [alt]="service.title" class="card-image" />
+          <span class="time-badge">{{ timeAgo(service.postedAt) }}</span>
+        </div>
+
+        <div class="card-body">
+          <h3 class="card-title">{{ service.title }}</h3>
+          <p class="card-description">{{ service.description | truncate:120 }}</p>
+
+          <div class="tag-list">
+            @for (tag of service.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+
+          <div class="card-footer">
+            <div class="budget-block">
+              <span class="budget-label">RATE</span>
+              <span class="budget-value">{{ formatBudget(service) }}</span>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary view-project-btn"
+              [attr.aria-label]="'View service: ' + service.title"
+              (click)="viewService(service)"
+            >
+              View Service <span class="arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    } @empty {
+      <p class="empty-state" role="status">No services found in this category yet.</p>
+    }
+  </div>
+</section>

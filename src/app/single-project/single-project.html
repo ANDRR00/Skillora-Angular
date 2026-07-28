@@ -1,0 +1,283 @@
+@if (project(); as project) {
+  <div class="project-detail-page">
+    <button type="button" routerLink="/allProjects" class="btn-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Projects
+    </button>
+
+    <div class="detail-grid">
+      <!-- ============ Main column ============ -->
+      <div class="main-column">
+        <article class="content-card">
+          <div class="cover-wrap">
+            @if (project.coverImageUrl) {
+              <img [src]="project.coverImageUrl" [alt]="project.title" class="cover-image" />
+            } @else {
+              <div class="cover-placeholder">
+                <span>PROJECT COVER IMAGE</span>
+              </div>
+            }
+
+            <div class="cover-badges">
+              <span class="badge badge-status">{{ project.status }}</span>
+              <span class="badge badge-category">{{ project.category }}</span>
+            </div>
+          </div>
+
+          <div class="content-body">
+            <h1 class="project-title">{{ project.title }}</h1>
+
+            <div class="quick-facts">
+              <div class="fact">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <polyline points="12 7 12 12 15 14"></polyline>
+                </svg>
+                <span>Posted {{ relativeTime(project.postedAt) }}</span>
+              </div>
+              <div class="fact">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <span>{{ formatBudget(project) }}</span>
+              </div>
+              <div class="fact">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <span>Fixed</span>
+              </div>
+              <!-- <div class="fact">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"></polygon>
+                </svg>
+                <span>{{ project.experienceLevel }}</span>
+              </div> -->
+            </div>
+
+            <section class="section">
+              <h2 class="section-heading">Project Description</h2>
+              @for (paragraph of project.description; track $index) {
+                <p class="description-paragraph">{{ paragraph }}</p>
+              }
+            </section>
+
+            <hr class="divider" />
+
+            <section class="section">
+              <h2 class="section-heading">Required Skills</h2>
+              <div class="skill-list">
+                @for (skill of project.skills; track skill) {
+                  <span class="skill-pill">{{ skill }}</span>
+                }
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <article class="content-card gallery-card">
+          <h2 class="section-heading">Project Gallery</h2>
+
+          <div class="gallery">
+            @if (project.gallery[0]; as mainSlot) {
+              <div class="gallery-main">
+                @if (mainSlot.imageUrl) {
+                  <img [src]="mainSlot.imageUrl" [alt]="mainSlot.label" />
+                } @else {
+                  <span class="gallery-label">{{ mainSlot.label | uppercase }}</span>
+                }
+              </div>
+            }
+
+            <div class="gallery-thumbs">
+              @for (slot of project.gallery.slice(1); track slot.label) {
+                <div class="gallery-thumb">
+                  @if (slot.imageUrl) {
+                    <img [src]="slot.imageUrl" [alt]="slot.label" />
+                  } @else {
+                    <span class="gallery-label">{{ slot.label | uppercase }}</span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ============ Sidebar (sticky) ============ -->
+      <aside class="sidebar">
+        @if (poster(); as poster) {
+          <div class="poster-card">
+            <div class="poster-header">
+              <div class="poster-avatar">
+                @if (poster.logoUrl) {
+                  <img [src]="poster.logoUrl" [alt]="poster.name" />
+                } @else {
+                  {{ initials(poster.name) }}
+                }
+              </div>
+              <div class="poster-meta">
+                <div class="poster-name">{{ poster.name }}</div>
+                @if (poster.verified) {
+                  <div class="poster-verified">Verified Company</div>
+                }
+              </div>
+            </div>
+
+            <p class="poster-description">{{ poster.description }}</p>
+
+            <div class="poster-info-list">
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Website</div>
+                  <div class="info-value">{{ poster.website }}</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Phone</div>
+                  <div class="info-value">{{ poster.phone }}</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                    <line x1="10" y1="6" x2="14" y2="6"></line>
+                    <line x1="10" y1="10" x2="14" y2="10"></line>
+                    <line x1="10" y1="14" x2="14" y2="14"></line>
+                    <line x1="10" y1="18" x2="14" y2="18"></line>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Address</div>
+                  <div class="info-value">{{ poster.address }}</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Member Since</div>
+                  <div class="info-value">{{ poster.memberSinceYear }}</div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="divider" />
+
+            <h3 class="summary-heading">Project Summary</h3>
+            <div class="poster-info-list">
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Budget</div>
+                  <div class="info-value">{{ formatBudget(project) }}</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2.5 12.5V2.5h10L20.59 10.6a2 2 0 0 1 0 2.82Z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Category</div>
+                  <div class="info-value">{{ project.category }}</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Status</div>
+                  <div class="info-value">{{ project.status }}</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">Posted</div>
+                  <div class="info-value">{{ relativeTime(project.postedAt) }}</div>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn-apply" (click)="applyForProject()">
+              Apply for Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <a [href]="'https://' + poster.website" target="_blank" rel="noopener noreferrer" class="btn-visit">
+              Visit Website
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        } @else {
+          <div class="poster-card state-message">
+            <p>Loading company…</p>
+          </div>
+        }
+      </aside>
+    </div>
+  </div>
+} @else {
+  <div class="state-message">
+    <p>Loading project…</p>
+  </div>
+}

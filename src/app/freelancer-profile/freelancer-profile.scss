@@ -1,0 +1,520 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.profileHeader {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #1B212B;
+    padding: 35px;
+
+    .personLeft {
+        display: flex;
+        width: 25%;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10%;
+        min-width: 0;
+
+        .profilePicture {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(160px, 18vw, 300px);
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            border: 1px solid #a77b39;
+            padding: 5px;
+            flex-shrink: 0;
+
+            img {
+                width: clamp(148px, 17vw, 280px);
+                aspect-ratio: 1 / 1;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .personRight {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 75%;
+        min-width: 0;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .personInfo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+            min-width: 0;
+
+            .statusTop {
+                color: #a77b39;
+                font-size: clamp(18px, 2.2vw, 32px);
+            }
+
+            .infoLower {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 5px;
+
+                .location {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+
+                    img {
+                        width: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.personAge span,
+.name {
+    font-size: clamp(24px, 3vw, 48px);
+    color: rgb(224, 220, 220);
+}
+
+.profileAbout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 35px;
+    background-color: #efe8d8;
+    padding: 35px;
+
+    .aboutInfo {
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    hr {
+        width: 100%;
+        border: 1px solid #8894a8;
+    }
+
+    .resumePortfolioWrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .resumePortfolio {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 40%;
+            flex-wrap: wrap;
+
+            .portfolio,
+            .resume {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 8px;
+                padding: 10px;
+                min-width: 50%;
+            }
+
+            span {
+                color: #8894a8;
+                font-size: 23px;
+            }
+
+            .portfolio {
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 28px;
+                }
+            }
+
+            .resumeDownload {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: black;
+                font-weight: bolder;
+                background-color: #a77b39;
+                border: 1px solid #a77b39;
+                border-radius: 11px;
+                padding: 10px 20px;
+                transition: 0.6s ease;
+
+                img {
+                    width: 32px;
+                }
+
+                &:hover {
+                    background-color: #efe8d8;
+                    color: #a77b39;
+                }
+            }
+        }
+    }
+}
+
+.projectSection {
+    width: 100%;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #efe8d8;
+
+    .projectBar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 2px solid #c4923e;
+        padding: 8px;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 20px;
+
+        .projectsHeader {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 4px;
+
+            p {
+                color: #b8863b;
+                font-weight: bolder;
+                font-size: 32px;
+            }
+
+            span {
+                color: #8894a8;
+            }
+        }
+
+        .allProjectsView {
+            width: 85px;
+            border: 1px solid #8894a8;
+            color: #8894a8;
+            background-color: transparent;
+            padding: 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            white-space: nowrap;
+
+            &:hover {
+                color: #efe8d8;
+                background-color: #8894a8;
+                transition: 0.6s ease;
+            }
+        }
+    }
+
+    .projects {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 24px;
+        width: 100%;
+
+        .projectCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 12px;
+            background-color: #1b212b;
+            overflow: hidden;
+            flex: 1 1 340px;
+            max-width: 380px;
+            min-width: 0;
+
+            .upperCard {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            .lowerCard {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 100%;
+                padding: 20px;
+                gap: 10px;
+
+                .projectTitle {
+                    font-size: clamp(16px, 2vw, 20px);
+                }
+
+                .projectDetails {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 12px;
+                    width: 100%;
+
+                    .projectBody {
+                        width: 100%;
+                    }
+
+                    .projectNeeds {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 12px;
+                        flex-wrap: wrap;
+                        width: 100%;
+
+                        .skill {
+                            background-color: wheat;
+                            border: none;
+                            padding: 6px 10px;
+                            border-radius: 5px;
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .projectView {
+                        width: 100%;
+                        border: 1px solid gray;
+                        border-radius: 8px;
+                        padding: 8px 5px;
+                        background-color: transparent;
+                        color: goldenrod;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 12px;
+                        align-self: center;
+                        cursor: pointer;
+                        transition: 0.6s ease;
+
+                        img {
+                            width: 28px;
+                        }
+
+                        &:hover {
+                            background-color: goldenrod;
+                            color: #1b212b;
+                            border-color: goldenrod;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 992px) {
+    .profileHeader {
+        padding: 25px;
+
+        .profilePicture {
+            width: 220px;
+
+            img {
+                width: 200px;
+            }
+        }
+
+        .personLeft {
+            width: 35%;
+        }
+
+        .personRight {
+            width: 65%;
+        }
+
+        .statusTop {
+            font-size: 28px;
+        }
+    }
+
+    .personAge span,
+    .name {
+        font-size: 36px;
+    }
+
+    .resumePortfolio {
+        width: 60%;
+    }
+}
+
+/* Mobile / tablet portrait */
+@media (max-width: 768px) {
+    .profileHeader {
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px 20px;
+
+        .personLeft {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .personRight {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            .personInfo {
+                align-items: center;
+                text-align: center;
+
+                .infoLower {
+                    align-items: center;
+                }
+            }
+
+            .personAge {
+                text-align: center;
+            }
+        }
+    }
+
+    .resumePortfolioWrapper {
+        justify-content: center;
+
+        .resumePortfolio {
+            width: 100%;
+            justify-content: space-around;
+        }
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .profileHeader {
+        padding: 20px 15px;
+
+        .personLeft {
+            gap: 0;
+
+            .profilePicture {
+                width: 160px;
+                padding: 3px;
+
+                img {
+                    width: 148px;
+                }
+            }
+        }
+
+        .personRight {
+            .personInfo {
+                .statusTop {
+                    font-size: 20px;
+                    padding: 0px 4px !important;
+                }
+
+                .infoLower {
+                    .location {
+                        img {
+                            width: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .personAge span,
+    .name {
+        font-size: 26px;
+    }
+
+    .profileAbout {
+        padding: 20px 15px;
+        gap: 20px;
+
+        .resumePortfolioWrapper {
+            .resumePortfolio {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+
+                .portfolio,
+                .resume {
+                    align-items: center;
+                    text-align: center;
+                    min-width: 100%;
+                }
+
+                .resumeDownload {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .projectSection {
+        .projectBar {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+
+            .allProjectsView {
+                width: 100%;
+            }
+        }
+
+        .projects {
+            .projectCard {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

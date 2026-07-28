@@ -1,0 +1,105 @@
+<div class="wrapper">
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="eyebrow-row">
+        <span class="rule" aria-hidden="true"></span>
+        <span class="eyebrow">SUCCESS STORIES</span>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <h1 class="headline" id="storiesHeading">
+        Real Results from Real <span class="headline-accent">Partnerships</span>
+      </h1>
+      <p class="subhead">
+        Every project on Skillora is a chance to build a lasting professional relationship.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div
+      class="carousel-grid"
+      role="region"
+      aria-labelledby="storiesHeading"
+      aria-roledescription="carousel"
+    >
+      <!-- Profile card -->
+      <div class="profile-card" aria-live="polite" aria-atomic="true">
+        <div class="profile-top">
+          <div
+            class="avatar"
+            [style.background]="'linear-gradient(135deg, ' + story.avatarFrom + ', ' + story.avatarTo + ')'"
+            aria-hidden="true"
+          >
+            {{ story.initials }}
+          </div>
+          <div class="profile-meta">
+            <div class="profile-name">{{ story.name }}</div>
+            <div class="profile-role">{{ story.role }}</div>
+            <div class="profile-company">{{ story.company }}</div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="label" id="projectLabel">PROJECT</div>
+          <div class="project-title" aria-labelledby="projectLabel">{{ story.project }}</div>
+        </div>
+
+        <div class="block">
+          <div class="label" id="skillsLabel">SKILLS USED</div>
+          <div class="skills" aria-labelledby="skillsLabel">
+            @for (skill of story.skills; track skill) {
+              <span class="skill-pill">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote + result -->
+      <div class="quote-col">
+        <svg class="quote-icon" viewBox="0 0 24 24" width="30" height="30" fill="#d9c9a3" aria-hidden="true">
+          <path d="M7.17 6C4.87 6 3 7.87 3 10.17c0 2.3 1.87 4.17 4.17 4.17.4 0 .78-.06 1.15-.16C7.9 16.6 6.28 18.02 4 18.5v2.36c4.3-.55 7.17-3.86 7.17-8.7V6H7.17zm10 0c-2.3 0-4.17 1.87-4.17 4.17 0 2.3 1.87 4.17 4.17 4.17.4 0 .78-.06 1.15-.16-.42 2.42-2.04 3.84-4.32 4.32v2.36c4.3-.55 7.17-3.86 7.17-8.7V6h-4.17z"/>
+        </svg>
+        <p class="quote-text" aria-live="polite" aria-atomic="true">{{ story.quote }}</p>
+
+        <div class="result-card">
+          <div class="result-icon" aria-hidden="true">{{ story.resultIcon }}</div>
+          <div class="result-body">
+            <div class="label" id="resultLabel">RESULT</div>
+            <div class="result-text" aria-labelledby="resultLabel">{{ story.result }}</div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls" role="group" aria-label="Carousel controls">
+          <button class="nav-btn" type="button" (click)="prev()" aria-label="Previous story">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2c2416" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          <button class="nav-btn" type="button" (click)="next()" aria-label="Next story">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2c2416" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <div class="dots" role="group" aria-label="Choose a story">
+            @for (s of stories; track $index) {
+              <button
+                class="dot"
+                type="button"
+                [class.dot-active]="$index === index"
+                [attr.aria-current]="$index === index ? 'true' : null"
+                (click)="goTo($index)"
+                [attr.aria-label]="'Go to story ' + ($index + 1)"
+              ></button>
+            }
+          </div>
+
+          <span class="counter" aria-live="polite" aria-atomic="true">{{ index + 1 }} / {{ total }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

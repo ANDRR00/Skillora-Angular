@@ -1,0 +1,440 @@
+.leftHeader,
+.rightHeader {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1b212b;
+  padding: 14px 32px;
+  gap: 16px;
+
+  @media (max-width: 992px) {
+    padding: 12px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 10px 8px;
+    gap: 6px;
+  }
+
+  /* ============ Left side: burger + desktop nav ============ */
+  .leftHeader {
+    gap: 16px;
+
+    nav.desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      button {
+        font-family: var(--font-body, "Inter", sans-serif);
+        font-size: 0.9rem;
+        background: transparent;
+        border: none;
+        color: var(--slate, #8894a8);
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        white-space: nowrap;
+
+        &:hover {
+          color: var(--brass-2, #d9ac66);
+        }
+
+        &.active-link {
+          background-color: #232a36;
+          color: var(--brass-2, #d9ac66);
+
+          &:hover {
+            background-color: #2a3241;
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    /* ============ Burger button ============ */
+    .burger-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: #232a36;
+      }
+
+      @media (max-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 360px) {
+        padding: 6px;
+      }
+
+      .burger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 16px;
+
+        span {
+          display: block;
+          height: 2px;
+          width: 100%;
+          background-color: var(--slate, #8894a8);
+          border-radius: 2px;
+          transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        &.open span:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        &.open span:nth-child(2) {
+          opacity: 0;
+        }
+
+        &.open span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  /* ============ Center logo ============ */
+  .centerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* Prevents the logo from refusing to shrink below its intrinsic size
+       when the header is genuinely out of room — without this, a flex
+       item's default min-width is "auto" (its content size), which can
+       force the whole header wider than the viewport. */
+    min-width: 0;
+
+    img {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+
+      @media (max-width: 992px) {
+        height: 90px;
+      }
+
+      @media (max-width: 768px) {
+        height: 70px;
+      }
+
+      @media (max-width: 480px) {
+        height: 60px;
+      }
+
+      @media (max-width: 360px) {
+        height: 44px;
+      }
+    }
+  }
+
+  /* ============ Right side ============ */
+  .rightHeader {
+    gap: 20px;
+    justify-content: flex-end;
+    /* Same reasoning as .centerHeader above — lets .auth/.logout actually
+       shrink instead of holding the header open at their content width. */
+    min-width: 0;
+
+    @media (max-width: 480px) {
+      gap: 10px;
+    }
+
+    @media (max-width: 360px) {
+      gap: 6px;
+    }
+
+    .auth {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      @media (max-width: 480px) {
+        gap: 6px;
+      }
+
+      @media (max-width: 360px) {
+        gap: 4px;
+      }
+
+      button {
+        font-family: var(--font-body, "Inter", sans-serif);
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        white-space: nowrap;
+
+        &:first-child {
+          background-color: transparent;
+          border: 1.5px solid var(--slate, #8894a8);
+          color: var(--slate, #8894a8);
+
+          &:hover {
+            border-color: var(--brass-2, #d9ac66);
+            color: var(--brass-2, #d9ac66);
+          }
+        }
+
+        &:last-child {
+          background: linear-gradient(160deg, var(--brass-2, #d9ac66), var(--brass, #b8863b));
+          border: none;
+          color: #241a09;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px -10px rgba(184, 134, 59, 0.55);
+          }
+        }
+
+        @media (max-width: 992px) {
+          font-size: 0.82rem;
+          padding: 8px 14px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 0.78rem;
+          padding: 7px 12px;
+        }
+
+        @media (max-width: 360px) {
+          font-size: 0.7rem;
+          padding: 6px 9px;
+        }
+      }
+    }
+
+    .lang-toggle {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1.5px solid var(--slate, #8894a8);
+  color: var(--slate, #8894a8);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    border-color: var(--brass-2, #d9ac66);
+    color: var(--brass-2, #d9ac66);
+  }
+
+  @media (max-width: 992px) {
+    font-size: 0.78rem;
+    padding: 7px 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.65rem;
+    padding: 5px 8px;
+  }
+}
+
+    .profile {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1.5px solid var(--brass, #b8863b);
+      cursor: pointer;
+      transition: 0.3s ease;
+      flex-shrink: 0;
+
+      &:hover {
+        border-color: var(--brass-2, #d9ac66);
+        background-color: #232a36;
+      }
+
+      @media (max-width: 480px) {
+        width: 38px;
+        height: 38px;
+      }
+
+      @media (max-width: 360px) {
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    /* Previously had no responsive rules at all — stayed at full desktop
+       size (0.9rem / 10px 20px padding) on every screen size, which was
+       a major contributor to the sub-350px overflow for logged-in users. */
+    .logout {
+      font-family: var(--font-body, "Inter", sans-serif);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      white-space: nowrap;
+      border: none;
+      background-color: #d9ac66;
+
+      &:hover {
+        color: rgb(232, 230, 230);
+        background-color: #b8863b;
+      }
+
+      @media (max-width: 992px) {
+        font-size: 0.82rem;
+        padding: 8px 14px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.78rem;
+        padding: 7px 12px;
+      }
+
+      @media (max-width: 360px) {
+        font-size: 0.7rem;
+        padding: 6px 9px;
+      }
+    }
+  }
+}
+
+/* ============ Mobile nav panel + backdrop ============ */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  max-width: 80vw;
+  background-color: #1b212b;
+  border-right: 1px solid #262e3d;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 60px 20px 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: var(--slate, #8894a8);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+
+    &:hover {
+      color: var(--brass-2, #d9ac66);
+      background-color: #232a36;
+    }
+  }
+
+
+
+  button {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--slate, #8894a8);
+    padding: 12px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: var(--brass-2, #d9ac66);
+      background-color: #232a36;
+    }
+
+    &.active-link {
+      background-color: #232a36;
+      color: var(--brass-2, #d9ac66);
+    }
+  }
+
+
+  .mobile-nav {
+  // ...existing rules...
+
+  .lang-toggle.mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #232a36;
+    border: 1px solid var(--brass, #b8863b);
+    color: var(--brass-2, #d9ac66);
+    font-weight: 600;
+    margin-bottom: 8px;
+
+    &:hover {
+      background-color: #2a3241;
+      border-color: var(--brass-2, #d9ac66);
+      color: var(--brass-2, #d9ac66);
+    }
+  }
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .burger-icon span {
+    transition: none;
+  }
+}

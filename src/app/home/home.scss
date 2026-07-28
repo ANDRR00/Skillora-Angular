@@ -1,0 +1,627 @@
+/* Reuses the same tokens as the rest of the site (about/offer/values).
+   If you already have these declared globally in styles.css, delete this
+   block and just keep the rules below it. */
+:host {
+    display: block;
+    width: 100%;
+
+    --color-gold: #c49a5a;
+    --bg-dark: #16161f;
+    --bg-dark-card: #1a1f29;
+    --text-dark-heading: #e8e2d5;
+    --text-dark-muted: #7c8aa0;
+    --border-on-dark: #252b36;
+}
+
+.section-shell {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 100px 24px;
+
+    &--dark {
+        background: var(--bg-dark);
+    }
+
+    @media (max-width: 560px) {
+        padding: 72px 20px;
+    }
+}
+
+.trust {
+    max-width: 1160px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* ── Eyebrow with flanking rules ── */
+    &__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--color-gold);
+        margin-bottom: 22px;
+    }
+
+    &__eyebrow-line {
+        width: 28px;
+        height: 1px;
+        background: var(--color-gold);
+        opacity: 0.5;
+    }
+
+    /* ── Heading ── */
+    &__heading {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(32px, 4.5vw, 48px);
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--text-dark-heading);
+        margin: 0 0 20px;
+
+        em {
+            font-style: italic;
+            color: var(--color-gold);
+        }
+    }
+
+    /* ── Subheading ── */
+    &__subheading {
+        max-width: 560px;
+        font-size: 15.5px;
+        line-height: 1.7;
+        color: var(--text-dark-muted);
+        margin: 0 0 56px;
+
+        @media (max-width: 560px) {
+            margin-bottom: 40px;
+        }
+    }
+
+    /* ── Card grid ── */
+    &__grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        @media (max-width: 920px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 560px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ── Individual card ── */
+    &__card {
+        position: relative;
+        background: var(--bg-dark-card);
+        border: 1px solid var(--border-on-dark);
+        border-radius: 14px;
+        padding: 28px 24px 32px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            border-color: #3a4254;
+            transform: translateY(-2px);
+        }
+    }
+
+    /* ── Card copy ── */
+    &__card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--text-dark-heading);
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    &__card-desc {
+        font-size: 13.5px;
+        line-height: 1.7;
+        color: var(--text-dark-muted);
+        margin: 0;
+    }
+
+    /* ── Corner accent mark ── */
+    &__card-corner {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        width: 10px;
+        height: 10px;
+        border-right: 1.5px solid var(--color-gold);
+        border-bottom: 1.5px solid var(--color-gold);
+        opacity: 0.55;
+    }
+}
+
+/* ── Icon chip ── */
+.icon-chip {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    &--green {
+        background: rgba(52, 211, 153, 0.16);
+        color: #34d399;
+    }
+
+    &--amber {
+        background: rgba(245, 194, 107, 0.16);
+        color: #f5c26b;
+    }
+
+    &--orange {
+        background: rgba(251, 146, 60, 0.16);
+        color: #fb923c;
+    }
+
+    &--blue {
+        background: rgba(96, 165, 250, 0.16);
+        color: #60a5fa;
+    }
+}
+
+:host {
+  --bg: #0d1119;
+  --card-bg: #161b28;
+  --card-border: #262c3d;
+  --text-primary: #f5f6f8;
+  --text-secondary: #8b93a7;
+  --gold: #d9a441;
+  --gold-soft: rgba(217, 164, 65, 0.12);
+  --gold-border: rgba(217, 164, 65, 0.45);
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.projects-section {
+  background: var(--bg);
+  color: var(--text-primary);
+  padding: 56px 48px 72px;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding: 44px 32px 56px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 32px 18px 40px;
+  }
+
+  /* ---------- Header ---------- */
+
+  .projects-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+
+    @media (max-width: 860px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .heading-block {
+    max-width: 640px;
+  }
+
+  .heading {
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+
+    .accent {
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .subheading {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ---------- Grid ---------- */
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    @media (max-width: 1024px) {
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Card ---------- */
+
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .time-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(13, 17, 25, 0.85);
+    color: var(--gold);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(4px);
+  }
+
+  .card-body {
+    padding: 24px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    @media (max-width: 480px) {
+      padding: 20px 18px 22px;
+    }
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  .card-description {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    flex: 1;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-border);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 18px;
+    border-top: 1px solid var(--card-border);
+    flex-wrap: wrap;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .budget-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .budget-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+  }
+
+  .budget-value {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .view-all-btn {
+    @media (max-width: 860px) {
+      align-self: stretch;
+      justify-content: center;
+    }
+  }
+
+  .view-project-btn {
+    @media (max-width: 480px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid #3a4157;
+  padding: 12px 20px;
+
+  &:hover {
+    border-color: var(--gold-border);
+    color: var(--gold);
+  }
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #241a05;
+  border: none;
+  padding: 11px 18px;
+
+  &:hover {
+    background: #e6b45b;
+  }
+}
+
+.arrow {
+  display: inline-block;
+}
+
+:host {
+  --bg: #0d1119;
+  --card-bg: #161b28;
+  --card-border: #262c3d;
+  --text-primary: #f5f6f8;
+  --text-secondary: #8b93a7;
+  --gold: #d9a441;
+  --radius-lg: 14px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.guides-section {
+  background: var(--bg);
+  color: var(--text-primary);
+  padding: 56px 48px 72px;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding: 44px 32px 56px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 32px 18px 40px;
+  }
+
+  /* ---------- Header ---------- */
+
+  .guides-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 44px;
+  }
+
+  .heading {
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    font-weight: 700;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+
+    .accent {
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .subheading {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.6;
+
+    @media (max-width: 480px) {
+      font-size: 0.88rem;
+    }
+  }
+
+  /* ---------- Grid ---------- */
+
+  .guides-grid {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    @media (max-width: 1024px) {
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Card ---------- */
+
+  .guide-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    overflow: hidden;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-body {
+    padding: 24px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    @media (max-width: 480px) {
+      padding: 20px 18px 22px;
+    }
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  .card-description {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    flex: 1;
+  }
+
+  .read-guide-link {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    transition: gap 0.15s ease, opacity 0.15s ease;
+
+    &:hover {
+      gap: 10px;
+      opacity: 0.85;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .arrow {
+    display: inline-block;
+  }
+}

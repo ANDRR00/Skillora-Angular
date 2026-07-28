@@ -1,0 +1,78 @@
+<div class="hero-content">
+  <span class="eyebrow">SKILLORA MARKETPLACE</span>
+  <h1 class="title" id="allProjectsHeading">Explore Projects</h1>
+  <p class="subtitle">
+    Browse projects from verified companies and discover opportunities that match your expertise.
+  </p>
+</div>
+
+<div class="filters" role="group" aria-label="Filter projects by category">
+  @for (category of categories(); track category.value) {
+    <button
+      class="filter-pill"
+      [class.active]="activeCategory() === category.value"
+      [attr.aria-pressed]="activeCategory() === category.value"
+      (click)="selectCategory(category.value)"
+    >
+      {{ category.label }}
+    </button>
+  } @empty {
+    <span class="filters-loading" role="status">Loading categories…</span>
+  }
+</div>
+
+<div class="currency-switcher" role="group" aria-label="Select display currency">
+  @for (currency of currencies; track currency.code) {
+    <button
+      type="button"
+      class="currency-pill"
+      [class.active]="activeCurrency() === currency.code"
+      [attr.aria-pressed]="activeCurrency() === currency.code"
+      (click)="selectCurrency(currency.code)"
+    >
+      {{ currency.symbol }} {{ currency.label }}
+    </button>
+  }
+</div>
+
+<section class="projects-grid-section" aria-labelledby="allProjectsHeading">
+  <div class="projects-grid">
+    @for (project of filteredProjects(); track project.id) {
+      <article class="project-card" [attr.aria-label]="project.title">
+        <div class="card-image-wrap">
+          <img [src]="project.imageUrl" [alt]="project.title" class="card-image" />
+          <span class="time-badge">{{ timeAgo(project.postedAt) }}</span>
+        </div>
+
+        <div class="card-body">
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-description"> {{ project.description | truncate:120 }}</p>
+
+          <div class="tag-list">
+            @for (tag of project.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+
+          <div class="card-footer">
+            <div class="budget-block">
+              <span class="budget-label">BUDGET</span>
+              <span class="budget-value">{{ formatBudget(project) }}</span>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary view-project-btn"
+              [attr.aria-label]="'View project: ' + project.title"
+              (click)="viewProject(project)"
+            >
+              View Project <span class="arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    } @empty {
+      <p class="empty-state" role="status">No projects found in this category yet.</p>
+    }
+  </div>
+</section>
