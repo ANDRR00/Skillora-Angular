@@ -44,7 +44,7 @@ export class FreelancerRegistration {
       ]],
       password: ['', [
         Validators.required,
-        Validators.minLength(14),
+        Validators.minLength(12),
         Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).+$/)
       ]],
       repeatPassword: ['', Validators.required],
