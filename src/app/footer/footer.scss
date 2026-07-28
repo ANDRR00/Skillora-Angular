@@ -1,29 +1,43 @@
 .site-footer {
   width: 100%;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #1b212b 0%,
-      #181d26 100%
-    );
+      #181d26 100%);
   border-top: 1px solid rgba(184, 134, 59, 0.18);
   padding: 48px 32px 32px;
 
   .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
     gap: 32px;
     max-width: 1200px;
     margin: 0 auto;
 
+    .footer-col {
+      flex: 1 1 calc(25% - 24px);
+    }
+
     @media (max-width: 992px) {
-      grid-template-columns: repeat(2, 1fr);
       row-gap: 40px;
+
+      .footer-col {
+        flex: 1 1 calc(50% - 16px);
+      }
     }
 
     @media (max-width: 576px) {
-      grid-template-columns: 1fr;
       gap: 28px;
+
+      .footer-col {
+        flex: 0 1 auto;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto;
+        align-items: flex-start;
+      }
     }
   }
 
