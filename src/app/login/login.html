@@ -1,9 +1,8 @@
 <div class="screen-inner">
-  <button class="back-btn" type="button" routerLink="" aria-label="Go back to home">← Back</button>
+  <button class="back-btn" type="button" routerLink="" aria-label="Go back to home">← {{ language.t('authBackBtn') }}</button>
   <div class="form-card">
-    <p class="card-eyebrow small">Card No. 01</p>
-    <h2 id="loginHeading">Welcome back</h2>
-    <p class="form-lede" id="loginLede">Log in to keep working the ledger.</p>
+    <h2 id="loginHeading">{{ language.t('login_welcome') }}</h2>
+    <p class="form-lede" id="loginLede">{{ language.t('login_phrase') }}</p>
 
     <form
       [formGroup]="loginForm"
@@ -12,23 +11,23 @@
       aria-describedby="loginLede"
     >
       <div class="form-group full">
-        <label for="loginEmail">Email *</label>
+        <label for="loginEmail">{{ language.t('login_email') }}</label>
         <input
           id="loginEmail"
           type="email"
           formControlName="email"
-          placeholder="you@example.com"
+          [placeholder]="language.t('login_emailPlaceholder')"
           aria-required="true"
         />
       </div>
 
       <div class="form-group full">
-        <label for="loginPassword">Password *</label>
+        <label for="loginPassword">{{ language.t('login_password') }}</label>
         <input
           id="loginPassword"
           type="password"
           formControlName="password"
-          placeholder="Enter password"
+          [placeholder]="language.t('login_passwordPlaceholder')"
           aria-required="true"
         />
       </div>
@@ -36,9 +35,9 @@
       <div class="form-row-between">
         <label class="checkbox inline">
           <input id="rememberMe" type="checkbox" formControlName="rememberMe" />
-          <span>Remember me</span>
+          <span>{{ language.t('login_checkbox') }}</span>
         </label>
-        <a href="#" class="text-link">Forgot password?</a>
+        <a href="#" class="text-link">{{ language.t('login_forgotPassword') }}</a>
       </div>
 
       @if (errorMessage()) {
@@ -52,7 +51,7 @@
         [disabled]="isSubmitting()"
         [attr.aria-busy]="isSubmitting()"
       >
-        {{ isSubmitting() ? 'Logging in...' : 'Log In' }}
+        {{ isSubmitting() ? language.t('login_loggingIn') : language.t('login_loginBtn') }}
       </button>
     </form>
   </div>

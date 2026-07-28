@@ -54,8 +54,8 @@
   </button>
 
   <button routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}"
-    (click)="closeMenu()">Home</button>
-  <button routerLink="/allProjects" routerLinkActive="active-link" (click)="closeMenu()">All Projects</button>
-  <button routerLink="/allServices" routerLinkActive="active-link" (click)="closeMenu()">All Services</button>
-  <button routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</button>
+    (click)="closeMenu()">{{languageService.t('home')}}</button>
+  <button routerLink="/allProjects" routerLinkActive="active-link" (click)="closeMenu()">{{languageService.t('allProjects')}}</button>
+  <button routerLink="/allServices" routerLinkActive="active-link" (click)="closeMenu()">{{languageService.t('allServices')}}</button>
+  <button routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">{{languageService.t('about')}}</button>
 </nav>

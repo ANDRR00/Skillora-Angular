@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from "@angular/router";
 import Swal from 'sweetalert2';
@@ -6,6 +6,7 @@ import { EmployerRegistrationRequest } from '../interfaces/employer-registration
 import { EmployerService } from '../services/employer-service';
 import { AuthService } from '../services/auth-service';
 import { EmployerProfileService } from '../services/employer-profile-service';
+import { LanguageService } from '../services/language-service';
 
 @Component({
   selector: 'app-employer-registration',
@@ -49,6 +50,8 @@ export class EmployerRegistration {
       terms: [false, Validators.requiredTrue]
     });
   }
+
+  language = inject(LanguageService)
 
   private showAlert(title: string, text: string, icon: 'success' | 'error' | 'warning' | 'info'): void {
     Swal.fire({

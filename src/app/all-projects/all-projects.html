@@ -1,12 +1,12 @@
 <div class="hero-content">
-  <span class="eyebrow">SKILLORA MARKETPLACE</span>
-  <h1 class="title" id="allProjectsHeading">Explore Projects</h1>
+  <span class="eyebrow">{{ languageService.t('projects_eyebrow') }}</span>
+  <h1 class="title" id="allProjectsHeading">{{ languageService.t('projects_title') }}</h1>
   <p class="subtitle">
-    Browse projects from verified companies and discover opportunities that match your expertise.
+    {{ languageService.t('projects_subtitle') }}
   </p>
 </div>
 
-<div class="filters" role="group" aria-label="Filter projects by category">
+<div class="filters" role="group" [attr.aria-label]="languageService.t('projects_filterAria')">
   @for (category of categories(); track category.value) {
     <button
       class="filter-pill"
@@ -17,11 +17,11 @@
       {{ category.label }}
     </button>
   } @empty {
-    <span class="filters-loading" role="status">Loading categories…</span>
+    <span class="filters-loading" role="status">{{ languageService.t('projects_loadingCategories') }}</span>
   }
 </div>
 
-<div class="currency-switcher" role="group" aria-label="Select display currency">
+<div class="currency-switcher" role="group" [attr.aria-label]="languageService.t('projects_currencyAria')">
   @for (currency of currencies; track currency.code) {
     <button
       type="button"
@@ -56,23 +56,23 @@
 
           <div class="card-footer">
             <div class="budget-block">
-              <span class="budget-label">BUDGET</span>
+              <span class="budget-label">{{ languageService.t('projects_budget') }}</span>
               <span class="budget-value">{{ formatBudget(project) }}</span>
             </div>
 
             <button
               type="button"
               class="btn btn-primary view-project-btn"
-              [attr.aria-label]="'View project: ' + project.title"
+              [attr.aria-label]="languageService.t('projects_viewProjectAria') + project.title"
               (click)="viewProject(project)"
             >
-              View Project <span class="arrow" aria-hidden="true">→</span>
+              {{ languageService.t('projects_viewProject') }} <span class="arrow" aria-hidden="true">→</span>
             </button>
           </div>
         </div>
       </article>
     } @empty {
-      <p class="empty-state" role="status">No projects found in this category yet.</p>
+      <p class="empty-state" role="status">{{ languageService.t('projects_emptyState') }}</p>
     }
   </div>
 </section>

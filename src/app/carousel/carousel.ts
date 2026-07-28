@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LanguageService } from '../services/language-service';
 
 interface Story {
-  name: string;
-  role: string;
-  company: string;
+  nameKey: string;
+  roleKey: string;
+  companyKey: string;
   initials: string;
   avatarFrom: string;
   avatarTo: string;
-  project: string;
+  projectKey: string;
   skills: string[];
-  quote: string;
+  quoteKey: string;
   resultIcon: string;
-  result: string;
+  resultKey: string;
 }
 
 @Component({
@@ -23,83 +24,89 @@ interface Story {
 export class Carousel {
   readonly stories: Story[] = [
     {
-      name: 'Nino Beridze',
-      role: 'Frontend Developer',
-      company: 'TechFlow Georgia',
+      nameKey: 'carousel_story1_name',
+      roleKey: 'carousel_story1_role',
+      companyKey: 'carousel_story1_company',
       initials: 'NB',
       avatarFrom: '#e8935c',
       avatarTo: '#c96a8a',
-      project: 'E-commerce Platform Redesign',
+      projectKey: 'carousel_story1_project',
       skills: ['React', 'TypeScript', 'Figma', 'REST APIs'],
-      quote:
-        "Through Skillora, Nino partnered with TechFlow to rebuild their entire customer-facing product. The transparent milestone system let both parties align on expectations from day one.",
+      quoteKey: 'carousel_story1_quote',
       resultIcon: '🚀',
-      result: 'Platform launched 2 weeks ahead of schedule. 40% improvement in conversion rate.',
+      resultKey: 'carousel_story1_result',
     },
     {
-      name: 'Levan Kapanadze',
-      role: 'Backend Engineer',
-      company: 'Datalink Systems',
+      nameKey: 'carousel_story2_name',
+      roleKey: 'carousel_story2_role',
+      companyKey: 'carousel_story2_company',
       initials: 'LK',
       avatarFrom: '#5c9ee8',
       avatarTo: '#8a5cc9',
-      project: 'Payments Infrastructure Overhaul',
+      projectKey: 'carousel_story2_project',
       skills: ['Node.js', 'PostgreSQL', 'AWS', 'Docker'],
-      quote:
-        "Levan worked directly with Datalink's founders to modernize a decade-old billing system. Weekly check-ins built through Skillora kept the migration transparent and low-risk.",
+      quoteKey: 'carousel_story2_quote',
       resultIcon: '⚙️',
-      result: 'Zero downtime migration. Transaction processing 3x faster post-launch.',
+      resultKey: 'carousel_story2_result',
     },
     {
-      name: 'Mariam Tsereteli',
-      role: 'Product Designer',
-      company: 'Orbit Studio',
+      nameKey: 'carousel_story3_name',
+      roleKey: 'carousel_story3_role',
+      companyKey: 'carousel_story3_company',
       initials: 'MT',
       avatarFrom: '#e8c15c',
       avatarTo: '#e86a6a',
-      project: 'Mobile Banking App Redesign',
+      projectKey: 'carousel_story3_project',
       skills: ['Figma', 'User Research', 'Prototyping', 'Design Systems'],
-      quote:
-        "Mariam led a full design overhaul for Orbit's flagship banking app, running usability sessions alongside the in-house team through Skillora's shared workspace.",
+      quoteKey: 'carousel_story3_quote',
       resultIcon: '📱',
-      result: 'App Store rating rose from 3.2 to 4.7 within one quarter.',
+      resultKey: 'carousel_story3_result',
     },
     {
-      name: 'Giorgi Abashidze',
-      role: 'DevOps Consultant',
-      company: 'Cloudera Georgia',
+      nameKey: 'carousel_story4_name',
+      roleKey: 'carousel_story4_role',
+      companyKey: 'carousel_story4_company',
       initials: 'GA',
       avatarFrom: '#5ce8a0',
       avatarTo: '#5c9ee8',
-      project: 'CI/CD Pipeline Modernization',
+      projectKey: 'carousel_story4_project',
       skills: ['Kubernetes', 'Terraform', 'GitHub Actions', 'Monitoring'],
-      quote:
-        "Giorgi partnered with Cloudera's engineering team to rebuild their deployment pipeline from the ground up, with every milestone tracked openly through Skillora.",
+      quoteKey: 'carousel_story4_quote',
       resultIcon: '📈',
-      result: 'Deployment time cut from 45 minutes to under 4. Incidents down 60%.',
+      resultKey: 'carousel_story4_result',
     },
   ];
- 
+
+  language = inject(LanguageService);
+
   index = 0;
- 
-  get story(): Story {
-    return this.stories[this.index];
+
+  get story() {
+    const s = this.stories[this.index];
+    return {
+      ...s,
+      name: this.language.t(s.nameKey),
+      role: this.language.t(s.roleKey),
+      company: this.language.t(s.companyKey),
+      project: this.language.t(s.projectKey),
+      quote: this.language.t(s.quoteKey),
+      result: this.language.t(s.resultKey),
+    };
   }
- 
+
   get total(): number {
     return this.stories.length;
   }
- 
+
   goTo(i: number): void {
     this.index = ((i % this.total) + this.total) % this.total;
   }
- 
+
   prev(): void {
     this.goTo(this.index - 1);
   }
- 
+
   next(): void {
     this.goTo(this.index + 1);
   }
 }
-

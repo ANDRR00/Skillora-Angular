@@ -62,10 +62,10 @@ interface CompanyPoster {
   styleUrl: './single-project.scss',
 })
 export class SingleProject {
-   private readonly route = inject(ActivatedRoute);
+  private readonly route = inject(ActivatedRoute);
   private readonly allProjectService = inject(AllProjectService);
   private readonly employerProfileService = inject(EmployerProfileService);
-  private readonly languageService = inject(LanguageService);
+  languageService = inject(LanguageService);
   private readonly userId = this.route.snapshot.paramMap.get('userId')!;
   private readonly projectId = this.route.snapshot.paramMap.get('projectId')!;
 

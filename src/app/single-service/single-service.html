@@ -5,7 +5,7 @@
         <line x1="19" y1="12" x2="5" y2="12"></line>
         <polyline points="12 19 5 12 12 5"></polyline>
       </svg>
-      Back to Services
+      {{ languageService.t('serviceDetail_backBtn') }}
     </button>
 
     <div class="detail-grid">
@@ -17,7 +17,7 @@
               <img [src]="service.coverImageUrl" [alt]="service.title" class="cover-image" />
             } @else {
               <div class="cover-placeholder">
-                <span>SERVICE COVER IMAGE</span>
+                <span>{{ languageService.t('serviceDetail_coverPlaceholder') }}</span>
               </div>
             }
 
@@ -36,7 +36,7 @@
                   <circle cx="12" cy="12" r="9"></circle>
                   <polyline points="12 7 12 12 15 14"></polyline>
                 </svg>
-                <span>Posted {{ relativeTime(service.postedAt) }}</span>
+                <span>{{ languageService.t('serviceDetail_postedPrefix') }}{{ relativeTime(service.postedAt) }}</span>
               </div>
               <div class="fact">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -50,18 +50,12 @@
                   <rect x="2" y="7" width="20" height="14" rx="2"></rect>
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
-                <span>Fixed</span>
+                <span>{{ languageService.t('serviceDetail_fixed') }}</span>
               </div>
-              <!-- <div class="fact">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"></polygon>
-                </svg>
-                <span>{{ service.experienceLevel }}</span>
-              </div> -->
             </div>
 
             <section class="section">
-              <h2 class="section-heading">Service Description</h2>
+              <h2 class="section-heading">{{ languageService.t('serviceDetail_descriptionHeading') }}</h2>
               @for (paragraph of service.description; track $index) {
                 <p class="description-paragraph">{{ paragraph }}</p>
               }
@@ -70,7 +64,7 @@
             <hr class="divider" />
 
             <section class="section">
-              <h2 class="section-heading">Skills &amp; Tools</h2>
+              <h2 class="section-heading">{{ languageService.t('serviceDetail_skillsHeading') }}</h2>
               <div class="skill-list">
                 @for (skill of service.skills; track skill) {
                   <span class="skill-pill">{{ skill }}</span>
@@ -81,7 +75,7 @@
         </article>
 
         <article class="content-card gallery-card">
-          <h2 class="section-heading">Portfolio Gallery</h2>
+          <h2 class="section-heading">{{ languageService.t('serviceDetail_galleryHeading') }}</h2>
 
           <div class="gallery">
             @if (service.gallery[0]; as mainSlot) {
@@ -141,7 +135,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Location</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_location') }}</div>
                   <div class="info-value">{{ freelancer.location }}</div>
                 </div>
               </div>
@@ -149,28 +143,14 @@
               <div class="info-row">
                 <span class="info-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"></polygon>
+                    <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 12 2"></polygon>
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Experience</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_experience') }}</div>
                   <div class="info-value">{{ freelancer.yearsExperience }}</div>
                 </div>
               </div>
-
-              <!-- <div class="info-row">
-                <span class="info-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
-                  </svg>
-                </span>
-                <div>
-                  <div class="info-label">Specialty</div>
-                  <div class="info-value">{{ freelancer.specialty }}</div>
-                </div>
-              </div> -->
 
               <div class="info-row">
                 <span class="info-icon">
@@ -182,7 +162,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Member Since</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_memberSince') }}</div>
                   <div class="info-value">{{ freelancer.memberSinceYear }}</div>
                 </div>
               </div>
@@ -190,7 +170,7 @@
 
             <hr class="divider" />
 
-            <h3 class="summary-heading">Service Summary</h3>
+            <h3 class="summary-heading">{{ languageService.t('serviceDetail_summaryHeading') }}</h3>
             <div class="poster-info-list">
               <div class="info-row">
                 <span class="info-icon">
@@ -200,7 +180,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Category</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_category') }}</div>
                   <div class="info-value">{{ service.category }}</div>
                 </div>
               </div>
@@ -213,7 +193,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Price Range</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_priceRange') }}</div>
                   <div class="info-value">{{ formatPriceRange(service) }}</div>
                 </div>
               </div>
@@ -226,7 +206,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Status</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_status') }}</div>
                   <div class="info-value">{{ service.status }}</div>
                 </div>
               </div>
@@ -241,14 +221,14 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Posted</div>
+                  <div class="info-label">{{ languageService.t('serviceDetail_posted') }}</div>
                   <div class="info-value">{{ relativeTime(service.postedAt) }}</div>
                 </div>
               </div>
             </div>
 
             <button type="button" class="btn-hire" (click)="hireFreelancer()">
-              Hire Freelancer
+              {{ languageService.t('serviceDetail_hireBtn') }}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -257,7 +237,7 @@
 
             <div class="secondary-actions">
               <a [href]="freelancer.portfolioUrl" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                Portfolio
+                {{ languageService.t('serviceDetail_portfolioBtn') }}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -266,7 +246,7 @@
               </a>
 
               <a [href]="freelancer.resumeUrl" target="_blank" rel="noopener noreferrer" download class="btn-secondary">
-                Resume
+                {{ languageService.t('serviceDetail_resumeBtn') }}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
@@ -277,7 +257,7 @@
           </div>
         } @else {
           <div class="poster-card state-message">
-            <p>Loading freelancer…</p>
+            <p>{{ languageService.t('serviceDetail_loadingFreelancer') }}</p>
           </div>
         }
       </aside>
@@ -285,6 +265,6 @@
   </div>
 } @else {
   <div class="state-message">
-    <p>Loading service…</p>
+    <p>{{ languageService.t('serviceDetail_loadingService') }}</p>
   </div>
 }

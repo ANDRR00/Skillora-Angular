@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { LanguageService } from '../services/language-service';
 
 @Component({
   selector: 'app-role-select',
@@ -8,5 +9,5 @@ import { RouterLink } from "@angular/router";
   styleUrl: './role-select.scss',
 })
 export class RoleSelect {
-
+  language = inject(LanguageService)
 }

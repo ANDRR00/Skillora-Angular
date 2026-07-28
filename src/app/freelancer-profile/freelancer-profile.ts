@@ -1,6 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { FreelancerProfileArch } from '../interfaces/freelancer-profile-arch';
 import { FreelancerProfileService } from '../services/freelancer-profile-service';
+import { LanguageService } from '../services/language-service';
 
 @Component({
   selector: 'app-freelancer-profile',
@@ -10,6 +11,7 @@ import { FreelancerProfileService } from '../services/freelancer-profile-service
 })
 export class FreelancerProfile implements OnInit{
  private freelancerService = inject(FreelancerProfileService);
+ languageService = inject(LanguageService)
 
   profile = signal<FreelancerProfileArch | null>(null);
   isLoading = signal(true);

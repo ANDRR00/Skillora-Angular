@@ -338,7 +338,12 @@ main{
     }
 
     .allProjectsView{
-      width: 85px;
+      width: 92px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       border: 1px solid #8894a8;
       color: #8894a8;
       background-color: transparent;

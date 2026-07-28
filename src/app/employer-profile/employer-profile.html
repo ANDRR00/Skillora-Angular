@@ -3,21 +3,21 @@
     <section class="profileHeader">
         <div class="personLeft">
             <div class="profilePicture">
-                <img [src]="profile()?.logo_url  ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'"
-                    [alt]="(profile()?.company_name ?? 'Company') + ' logo'">
+                <img [src]="profile()?.logo_url ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'"
+                    [alt]="(profile()?.company_name ?? languageService.t('companyProfile_defaultCompanyAlt')) + ' logo'">
             </div>
         </div>
         <div class="personRight">
             <div class="personInfo">
                 <div class="statusTop" style="padding: 0px 8px;">
-                    company
+                    {{ languageService.t('companyProfile_badgeCompany') }}
                 </div>
                 <div class="infoLower">
-                    <span class="name" id="companyNameHeading">{{profile()?.company_name}}</span>
+                    <span class="name" id="companyNameHeading">{{ profile()?.company_name }}</span>
                     <div class="location">
                         <img src="images/realLocation.svg" alt="" aria-hidden="true">
-                        <span style="color: #8894a8;"> {{profile()?.company_origin}} |
-                            {{profile()?.company_address}}</span>
+                        <span style="color: #8894a8;"> {{ profile()?.company_origin }} |
+                            {{ profile()?.company_address }}</span>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,8 @@
 
     <section class="profileAbout" aria-labelledby="aboutSectionHeading">
         <article class="aboutInfo">
-            <p id="aboutSectionHeading">what we do</p>
-            <p class="aboutMe">{{profile()?.company_description}}</p>
+            <p id="aboutSectionHeading">{{ languageService.t('companyProfile_whatWeDo') }}</p>
+            <p class="aboutMe">{{ profile()?.company_description }}</p>
         </article>
 
         <hr>
@@ -35,30 +35,28 @@
         <div class="contactWrapper">
             <div class="contact">
                 <div class="website">
-                    <p id="websiteLabel">website</p>
-                    <a href="{{profile()?.company_website}}" aria-labelledby="websiteLabel" target="_blank"
-                        rel="noopener">{{profile()?.company_website}}</a>
+                    <p id="websiteLabel">{{ languageService.t('companyProfile_website') }}</p>
+                    <a [href]="profile()?.company_website" aria-labelledby="websiteLabel" target="_blank"
+                        rel="noopener">{{ profile()?.company_website }}</a>
                 </div>
                 <div class="phone">
-                    <p id="phoneLabel">phone</p>
-                    <span aria-labelledby="phoneLabel">{{profile()?.company_phone}}</span>
+                    <p id="phoneLabel">{{ languageService.t('companyProfile_phone') }}</p>
+                    <span aria-labelledby="phoneLabel">{{ profile()?.company_phone }}</span>
                 </div>
             </div>
         </div>
 
     </section>
 
-
-
-
-
     <section class="projectSection" aria-labelledby="projectsSectionHeading">
         <div class="projectBar">
             <div class="projectsHeader">
-                <p id="projectsSectionHeading">Projects</p>
-                <span>projects status and count</span>
+                <p id="projectsSectionHeading">{{ languageService.t('companyProfile_projectsHeading') }}</p>
+                <span>{{ languageService.t('companyProfile_projectsSubheading') }}</span>
             </div>
-            <button class="allProjectsView" aria-label="View all projects by this company">View All</button>
+            <button class="allProjectsView" [attr.aria-label]="languageService.t('companyProfile_viewAllAria')">
+                {{ languageService.t('companyProfile_viewAllBtn') }}
+            </button>
         </div>
 
         <div class="projects">
@@ -69,21 +67,21 @@
                 </div>
                 <div class="lowerCard">
                     <div class="projectTitle" id="project1CardTitle">
-                        pathcwork CMS
+                        patchwork CMS
                     </div>
                     <div class="projectDetails">
                         <p class="projectBody">
                             Headless CMS dashboard for editorial teams. Features real-time collaboration and a custom
                             rich text editor.
                         </p>
-                        <div class="projectNeeds" aria-label="Skills needed">
+                        <div class="projectNeeds" [attr.aria-label]="languageService.t('companyProfile_skillsNeededAria')">
                             <button class="skill" type="button">React</button>
                             <button class="skill" type="button">Figma</button>
                             <button class="skill" type="button">TypeScript</button>
                         </div>
                         <button class="projectView" aria-label="View project: Patchwork CMS">
                             <img src="images/open-in-new-svgrepo-com.svg" alt="" aria-hidden="true">
-                            View Project
+                            {{ languageService.t('companyProfile_viewProjectBtn') }}
                         </button>
                     </div>
                 </div>

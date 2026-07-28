@@ -70,19 +70,6 @@
     }
   }
 
-  .card-eyebrow {
-    font-family: var(--font-mono);
-    font-size: .68rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #8a7a55;
-    margin-bottom: .9rem;
-
-    &.small {
-      margin-bottom: .4rem;
-      color: var(--brass-2);
-    }
-  }
 
   form {
     display: flex;

@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { EmployerProfileService } from '../services/employer-profile-service';
 import { LoginResponse } from '../interfaces/login-response';
 import { EmployerProfileArch } from '../interfaces/employer-profile';
+import { LanguageService } from '../services/language-service';
 
 @Component({
   selector: 'app-employer-profile',
@@ -11,6 +12,7 @@ import { EmployerProfileArch } from '../interfaces/employer-profile';
 })
 export class EmployerProfile implements OnInit{
    private companyService = inject(EmployerProfileService);
+   languageService = inject(LanguageService)
 
   profile = signal<EmployerProfileArch | null>(null);
   isLoading = signal(true);

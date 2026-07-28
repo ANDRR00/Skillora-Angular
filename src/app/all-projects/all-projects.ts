@@ -46,12 +46,10 @@ interface Project {
 export class AllProjects {
  private readonly categoriesService = inject(CategoriesService);
   private readonly allProjectService = inject(AllProjectService);
-  private readonly languageService = inject(LanguageService);
+  languageService = inject(LanguageService);
   private readonly router = inject(Router);
 
-  readonly categories = toSignal(this.categoriesService.getCategories(), {
-    initialValue: [] as Category[],
-  });
+   readonly categories = this.categoriesService.categories;
 
   readonly currencies: CurrencyOption[] = [
     { code: 'GEL', symbol: '₾', label: 'GEL' },

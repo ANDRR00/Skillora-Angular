@@ -3,52 +3,77 @@
 
     <div class="trust__eyebrow">
       <span class="trust__eyebrow-line" aria-hidden="true"></span>
-      <span>Why Skillora</span>
+      <span>{{ language.t('home_whySkillora') }}</span>
       <span class="trust__eyebrow-line" aria-hidden="true"></span>
     </div>
 
-    <h2 class="trust__heading" id="trustHeading">The Marketplace Built on <em>Trust</em></h2>
+    <h2 class="trust__heading" id="trustHeading">
+      {{ language.t('home_marketplaceBuilt') }}
+      <em>{{ language.t('home_trust') }}</em>
+    </h2>
 
     <p class="trust__subheading">
-      Finding reliable freelancers and trustworthy companies shouldn't be hard.
-      Skillora creates a transparent environment where both sides collaborate with confidence.
+      {{ language.t('home_trustDescription') }}
     </p>
 
     <div class="trust__grid">
 
       <div class="trust__card">
         <div class="icon-chip icon-chip--green" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
         </div>
-        <p class="trust__card-title">Verified Profiles</p>
-        <p class="trust__card-desc">Every freelancer and company on Skillora is reviewed before listing. Portfolio checks, identity verification, and peer endorsements create a trustworthy community.</p>
+        <p class="trust__card-title">
+          {{ language.t('home_verifiedProfiles') }}
+        </p>
+
+        <p class="trust__card-desc">
+          {{ language.t('home_verifiedProfilesDesc') }}
+        </p>
         <span class="trust__card-corner" aria-hidden="true"></span>
       </div>
 
       <div class="trust__card">
         <div class="icon-chip icon-chip--amber" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" /></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" />
+          </svg>
         </div>
-        <p class="trust__card-title">Transparent Collaboration</p>
-        <p class="trust__card-desc">Clear contracts, milestone-based payments, and built-in messaging ensure both parties stay aligned throughout the entire project lifecycle.</p>
+        <p class="trust__card-title">{{ language.t('home_transparentCollaboration') }}</p>
+        <p class="trust__card-desc">{{ language.t('home_transparentCollaborationDesc') }}</p>
         <span class="trust__card-corner" aria-hidden="true"></span>
       </div>
 
       <div class="trust__card">
         <div class="icon-chip icon-chip--orange" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8" /><path d="M12 17v4" /><path d="M7 4h10v5a5 5 0 0 1-10 0V4z" /><path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4" /><path d="M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4" /></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M8 21h8" />
+            <path d="M12 17v4" />
+            <path d="M7 4h10v5a5 5 0 0 1-10 0V4z" />
+            <path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4" />
+            <path d="M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4" />
+          </svg>
         </div>
-        <p class="trust__card-title">Quality Talent</p>
-        <p class="trust__card-desc">Skilled Georgian professionals across software, design, marketing, and more — curated so you spend less time searching and more time building.</p>
+        <p class="trust__card-title">{{ language.t('home_qualityTalent') }}</p>
+        <p class="trust__card-desc">{{ language.t('home_qualityTalentDesc') }}</p>
         <span class="trust__card-corner" aria-hidden="true"></span>
       </div>
 
       <div class="trust__card">
         <div class="icon-chip icon-chip--blue" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+            <polyline points="16 7 22 7 22 13" />
+          </svg>
         </div>
-        <p class="trust__card-title">Growth Together</p>
-        <p class="trust__card-desc">Skillora is built to support long-term relationships. Freelancers grow their reputation. Companies scale their output. Everyone wins when projects succeed.</p>
+        <p class="trust__card-title">{{ language.t('home_growthTogether') }}</p>
+        <p class="trust__card-desc">{{ language.t('home_growthTogetherDesc') }}</p>
         <span class="trust__card-corner" aria-hidden="true"></span>
       </div>
 
@@ -63,15 +88,15 @@
   <header class="projects-header">
     <div class="heading-block">
       <h2 class="heading" id="projectsHeading">
-        Find Your Next <span class="accent">Opportunity</span>
+        {{ language.t('home_findOpportunity') }} <span class="accent">{{ language.t('home_opportunity') }}</span>
       </h2>
       <p class="subheading">
-        Real projects posted by Georgian businesses looking for skilled professionals.
+        {{ language.t('home_projectsSubtitle') }}
       </p>
     </div>
 
     <button type="button" class="btn btn-outline view-all-btn" routerLink="/allProjects">
-      View All Projects <span class="arrow" aria-hidden="true">→</span>
+      {{ language.t('home_viewAllProjects') }} <span class="arrow" aria-hidden="true">→</span>
     </button>
   </header>
 
@@ -80,31 +105,33 @@
     <!-- Card 1 -->
     <article class="project-card" aria-labelledby="project1Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80" alt="Mobile App UI/UX Redesign" class="card-image" />
-        <span class="time-badge">2 hours ago</span>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80"
+          alt="Mobile App UI/UX Redesign" class="card-image" />
+        <span class="time-badge">{{ language.t('home_project1Time') }}</span>
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="project1Title">Mobile App UI/UX Redesign</h3>
+        <h3 class="card-title" id="project1Title">{{ language.t('home_project1Title') }}</h3>
         <p class="card-description">
-          Looking for a senior product designer to redesign our iOS and Android apps. We need improved onboarding, clearer navigation, and a refreshed visual system.
+          {{ language.t('home_project1Desc') }}
         </p>
 
         <div class="tag-list">
-          <span class="tag">Figma</span>
-          <span class="tag">iOS Design</span>
-          <span class="tag">Android</span>
-          <span class="tag">Prototyping</span>
+          <span class="tag">{{ language.t('home_tagFigma') }}</span>
+          <span class="tag">{{ language.t('home_tagIOSDesign') }}</span>
+          <span class="tag">{{ language.t('home_tagAndroid') }}</span>
+          <span class="tag">{{ language.t('home_tagPrototyping') }}</span>
         </div>
 
         <div class="card-footer">
           <div class="budget-block">
-            <span class="budget-label">BUDGET</span>
+            <span class="budget-label">{{ language.t('home_budget') }}</span>
             <span class="budget-value">₾3,500 – ₾5,000</span>
           </div>
 
-          <button type="button" class="btn btn-primary view-project-btn" aria-label="View project: Mobile App UI/UX Redesign">
-            View Project <span class="arrow" aria-hidden="true">→</span>
+          <button type="button" class="btn btn-primary view-project-btn"
+            aria-label="View project: Mobile App UI/UX Redesign">
+            {{ language.t('home_viewProject') }} <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
       </div>
@@ -113,31 +140,33 @@
     <!-- Card 2 -->
     <article class="project-card" aria-labelledby="project2Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Digital Marketing Strategy" class="card-image" />
-        <span class="time-badge">5 hours ago</span>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+          alt="Digital Marketing Strategy" class="card-image" />
+        <span class="time-badge">{{ language.t('home_project2Time') }}</span>
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="project2Title">Digital Marketing Strategy</h3>
+        <h3 class="card-title" id="project2Title">{{ language.t('home_project2Title') }}</h3>
         <p class="card-description">
-          Early-stage startup seeking a performance marketer to own our paid acquisition strategy. Google Ads and Meta experience required. Georgian market knowledge is a strong plus.
+          {{ language.t('home_project2Desc') }}
         </p>
 
         <div class="tag-list">
-          <span class="tag">Google Ads</span>
-          <span class="tag">Meta Ads</span>
-          <span class="tag">Analytics</span>
-          <span class="tag">Copywriting</span>
+          <span class="tag">{{ language.t('home_tagGoogleAds') }}</span>
+          <span class="tag">{{ language.t('home_tagMetaAds') }}</span>
+          <span class="tag">{{ language.t('home_tagAnalytics') }}</span>
+          <span class="tag">{{ language.t('home_tagCopywriting') }}</span>
         </div>
 
         <div class="card-footer">
           <div class="budget-block">
-            <span class="budget-label">BUDGET</span>
+            <span class="budget-label">{{ language.t('home_budget') }}</span>
             <span class="budget-value">₾2,000/month</span>
           </div>
 
-          <button type="button" class="btn btn-primary view-project-btn" aria-label="View project: Digital Marketing Strategy">
-            View Project <span class="arrow" aria-hidden="true">→</span>
+          <button type="button" class="btn btn-primary view-project-btn"
+            aria-label="View project: Digital Marketing Strategy">
+            {{ language.t('home_viewProject') }} <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
       </div>
@@ -146,31 +175,33 @@
     <!-- Card 3 -->
     <article class="project-card" aria-labelledby="project3Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Dashboard Development" class="card-image" />
-        <span class="time-badge">1 day ago</span>
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Dashboard Development"
+          class="card-image" />
+        <span class="time-badge">{{ language.t('home_project3Time') }}</span>
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="project3Title">Data Dashboard Development</h3>
+        <h3 class="card-title" id="project3Title">{{ language.t('home_project3Title') }}</h3>
         <p class="card-description">
-          We need a full-stack developer to build an internal analytics dashboard. The system should pull from our existing APIs and present data in clear, exportable views.
+          {{ language.t('home_project3Desc') }}
         </p>
 
         <div class="tag-list">
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">D3.js</span>
-          <span class="tag">API Integration</span>
+          <span class="tag">{{ language.t('home_tagReact') }}</span>
+          <span class="tag">{{ language.t('home_tagNodejs') }}</span>
+          <span class="tag">{{ language.t('home_tagD3js') }}</span>
+          <span class="tag">{{ language.t('home_tagAPIIntegration') }}</span>
         </div>
 
         <div class="card-footer">
           <div class="budget-block">
-            <span class="budget-label">BUDGET</span>
+            <span class="budget-label">{{ language.t('home_budget') }}</span>
             <span class="budget-value">₾4,000 – ₾6,000</span>
           </div>
 
-          <button type="button" class="btn btn-primary view-project-btn" aria-label="View project: Data Dashboard Development">
-            View Project <span class="arrow" aria-hidden="true">→</span>
+          <button type="button" class="btn btn-primary view-project-btn"
+            aria-label="View project: Data Dashboard Development">
+            {{ language.t('home_viewProject') }} <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
       </div>
@@ -179,31 +210,33 @@
     <!-- Card 4 -->
     <article class="project-card" aria-labelledby="project4Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1544117519-31a4b719223d?w=800&q=80" alt="Corporate Training Content" class="card-image" />
-        <span class="time-badge">2 days ago</span>
+        <img src="https://images.unsplash.com/photo-1544117519-31a4b719223d?w=800&q=80" alt="Corporate Training Content"
+          class="card-image" />
+        <span class="time-badge">{{ language.t('home_project4Time') }}</span>
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="project4Title">Corporate Training Content</h3>
+        <h3 class="card-title" id="project4Title">{{ language.t('home_project4Title') }}</h3>
         <p class="card-description">
-          HR consulting firm looking for an instructional designer to develop onboarding modules for enterprise clients. Must have experience with e-learning platforms.
+          {{ language.t('home_project4Desc') }}
         </p>
 
         <div class="tag-list">
-          <span class="tag">Instructional Design</span>
-          <span class="tag">e-Learning</span>
-          <span class="tag">Video</span>
-          <span class="tag">Content Writing</span>
+          <span class="tag">{{ language.t('home_tagInstructionalDesign') }}</span>
+          <span class="tag">{{ language.t('home_tageLearning') }}</span>
+          <span class="tag">{{ language.t('home_tagVideo') }}</span>
+          <span class="tag">{{ language.t('home_tagContentWriting') }}</span>
         </div>
 
         <div class="card-footer">
           <div class="budget-block">
-            <span class="budget-label">BUDGET</span>
+            <span class="budget-label">{{ language.t('home_budget') }}</span>
             <span class="budget-value">₾1,800 – ₾2,500</span>
           </div>
 
-          <button type="button" class="btn btn-primary view-project-btn" aria-label="View project: Corporate Training Content">
-            View Project <span class="arrow" aria-hidden="true">→</span>
+          <button type="button" class="btn btn-primary view-project-btn"
+            aria-label="View project: Corporate Training Content">
+            {{ language.t('home_viewProject') }} <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
       </div>
@@ -216,10 +249,10 @@
 <section class="guides-section" aria-labelledby="guidesHeading">
   <header class="guides-header">
     <h2 class="heading" id="guidesHeading">
-      Guides to Help You <span class="accent">Grow</span>
+      {{ language.t('home_guidesHeading') }} <span class="accent">{{ language.t('home_guidesGrow') }}</span>
     </h2>
     <p class="subheading">
-      Practical advice for freelancers building their careers and businesses scaling their teams.
+      {{ language.t('home_guidesSubheading') }}
     </p>
   </header>
 
@@ -230,60 +263,68 @@
     <!-- Card 1 -->
     <article class="guide-card" aria-labelledby="guide1Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Improve Your Freelancer Profile" class="card-image" />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
+          alt="Improve Your Freelancer Profile" class="card-image" />
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="guide1Title">Improve Your Freelancer Profile</h3>
+        <h3 class="card-title" id="guide1Title">{{ language.t('home_guide1Title') }}</h3>
         <p class="card-description">
-          Learn what top-earning freelancers include in their profiles and how to position your expertise for the right clients.
+          {{ language.t('home_guide1Desc') }}
         </p>
-        <a href="#" class="read-guide-link" aria-label="Read guide: Improve Your Freelancer Profile">Read Guide <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#" class="read-guide-link" aria-label="Read guide: Improve Your Freelancer Profile">{{ language.t('home_readGuide') }} <span
+            class="arrow" aria-hidden="true">→</span></a>
       </div>
     </article>
 
     <!-- Card 2 -->
     <article class="guide-card" aria-labelledby="guide2Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="How To Win More Projects" class="card-image" />
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+          alt="How To Win More Projects" class="card-image" />
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="guide2Title">How To Win More Projects</h3>
+        <h3 class="card-title" id="guide2Title">{{ language.t('home_guide2Title') }}</h3>
         <p class="card-description">
-          Proposals that convert, pricing strategies that work, and how to stand out when competing for sought-after projects.
+          {{ language.t('home_guide2Desc') }}
         </p>
-        <a href="#" class="read-guide-link" aria-label="Read guide: How To Win More Projects">Read Guide <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#" class="read-guide-link" aria-label="Read guide: How To Win More Projects">{{ language.t('home_readGuide') }} <span
+            class="arrow" aria-hidden="true">→</span></a>
       </div>
     </article>
 
     <!-- Card 3 -->
     <article class="guide-card" aria-labelledby="guide3Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" alt="Building Successful Remote Teams" class="card-image" />
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80"
+          alt="Building Successful Remote Teams" class="card-image" />
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="guide3Title">Building Successful Remote Teams</h3>
+        <h3 class="card-title" id="guide3Title">{{ language.t('home_guide3Title') }}</h3>
         <p class="card-description">
-          Practical guide for businesses on hiring, onboarding, and managing distributed teams of freelance professionals.
+          {{ language.t('home_guide3Desc') }}
         </p>
-        <a href="#" class="read-guide-link" aria-label="Read guide: Building Successful Remote Teams">Read Guide <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#" class="read-guide-link" aria-label="Read guide: Building Successful Remote Teams">{{ language.t('home_readGuide') }} <span
+            class="arrow" aria-hidden="true">→</span></a>
       </div>
     </article>
 
     <!-- Card 4 -->
     <article class="guide-card" aria-labelledby="guide4Title">
       <div class="card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80" alt="Growing Your Business With Freelancers" class="card-image" />
+        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80"
+          alt="Growing Your Business With Freelancers" class="card-image" />
       </div>
 
       <div class="card-body">
-        <h3 class="card-title" id="guide4Title">Growing Your Business With Freelancers</h3>
+        <h3 class="card-title" id="guide4Title">{{ language.t('home_guide4Title') }}</h3>
         <p class="card-description">
-          How to scale output, reduce overhead, and bring specialist expertise into your company without full-time hiring.
+          {{ language.t('home_guide4Desc') }}
         </p>
-        <a href="#" class="read-guide-link" aria-label="Read guide: Growing Your Business With Freelancers">Read Guide <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#" class="read-guide-link" aria-label="Read guide: Growing Your Business With Freelancers">{{ language.t('home_readGuide') }}
+          <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </article>
 

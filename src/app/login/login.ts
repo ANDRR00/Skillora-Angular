@@ -3,6 +3,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from '../services/auth-service';
+import { LanguageService } from '../services/language-service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,10 @@ import { AuthService } from '../services/auth-service';
   styleUrl: './login.scss',
 })
 export class Login {
- private fb = inject(FormBuilder);
+  private fb = inject(FormBuilder);
   private auth = inject(AuthService);
   private router = inject(Router);
+  language = inject(LanguageService)
 
   isSubmitting = signal(false);
   errorMessage = signal<string | null>(null);

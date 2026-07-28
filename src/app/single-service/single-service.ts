@@ -65,10 +65,10 @@ interface FreelancerPoster {
   styleUrl: './single-service.scss',
 })
 export class SingleService {
-   private readonly route = inject(ActivatedRoute);
+  private readonly route = inject(ActivatedRoute);
   private readonly allServicesService = inject(AllServicesService);
   private readonly freelancerProfileService = inject(FreelancerProfileService);
-  private readonly languageService = inject(LanguageService);
+  languageService = inject(LanguageService);
   private readonly userId = this.route.snapshot.paramMap.get('userId')!;
   private readonly serviceId = this.route.snapshot.paramMap.get('serviceId')!;
 

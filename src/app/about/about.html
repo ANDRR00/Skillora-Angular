@@ -1,58 +1,38 @@
 <div class="wholeAbout">
     <section class="about" aria-labelledby="aboutHeading">
-
-        <p class="about__eyebrow">About Us</p>
-
-        <h2 class="about__heading" id="aboutHeading">About <em>Skillora</em></h2>
+        <p class="about__eyebrow">{{ language.t('about_eyebrow') }}</p>
+        <h2 class="about__heading" id="aboutHeading">
+            {{ language.t('about_headingPart') }} <em>{{ language.t('about_headingEm') }}</em>
+        </h2>
 
         <blockquote class="about__quote">
-            <p>"Building Tomorrow's Success Stories—<br>
-                Powered by Georgian Talent Today"</p>
+            <p>{{ language.t('about_quote') }}</p>
         </blockquote>
 
         <div class="about__body">
-            <p>
-                Welcome to Skillora, where every developer, designer, marketer, and consultant
-                finds the spotlight, and every entrepreneur finds the perfect partner to bring
-                visions to life without ever leaving their desk.
-            </p>
-            <p>
-                We exist to accelerate growth—for Georgian professionals and international
-                businesses alike—by fostering a secure, transparent, and vibrant marketplace.
-                Through rigorous vetting, real-time collaboration tools, and a thriving peer
-                community, we make remote work seamless, trustworthy, and mutually rewarding,
-                so that great ideas become great achievements.
-            </p>
+            <p>{{ language.t('about_body1') }}</p>
+            <p>{{ language.t('about_body2') }}</p>
         </div>
-
     </section>
 
-
     <section class="offer" aria-labelledby="offerHeading">
-
-        <p class="offer__eyebrow">What We Offer</p>
-
+        <p class="offer__eyebrow">{{ language.t('offer_eyebrow') }}</p>
         <h2 class="offer__heading" id="offerHeading">
-            Built for excellence,
-            <em>by design</em>
+            {{ language.t('offer_headingPart') }}
+            <em>{{ language.t('offer_headingEm') }}</em>
         </h2>
 
         <div class="offer__grid">
-
-            <!-- Verified Experts -->
             <div class="offer__card">
                 <svg class="offer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="9" />
                     <path d="M8.5 12.5l2.5 2.5 4.5-4.5" />
                 </svg>
-                <p class="offer__card-title">Verified Experts</p>
-                <p class="offer__card-desc">Each profile is background-checked and skills-assessed before appearing on
-                    the
-                    platform.</p>
+                <p class="offer__card-title">{{ language.t('offer_verifiedExperts') }}</p>
+                <p class="offer__card-desc">{{ language.t('offer_verifiedExpertsDesc') }}</p>
             </div>
 
-            <!-- Community -->
             <div class="offer__card">
                 <svg class="offer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -61,164 +41,137 @@
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     <path d="M21 21v-2a4 4 0 0 0-3-3.85" />
                 </svg>
-                <p class="offer__card-title">Community</p>
-                <p class="offer__card-desc">Local meetups, skill-shares, and peer mentoring circles that keep Georgian
-                    talent thriving.</p>
+                <p class="offer__card-title">{{ language.t('offer_community') }}</p>
+                <p class="offer__card-desc">{{ language.t('offer_communityDesc') }}</p>
             </div>
 
-            <!-- Excellence -->
             <div class="offer__card">
                 <svg class="offer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
-                <p class="offer__card-title">Excellence</p>
-                <p class="offer__card-desc">Rigorous vetting means you only ever work with the best—no exceptions, no
-                    compromises.</p>
+                <p class="offer__card-title">{{ language.t('offer_excellence') }}</p>
+                <p class="offer__card-desc">{{ language.t('offer_excellenceDesc') }}</p>
             </div>
 
-            <!-- Growth -->
             <div class="offer__card">
                 <svg class="offer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
                     <polyline points="16 7 22 7 22 13" />
                 </svg>
-                <p class="offer__card-title">Growth</p>
-                <p class="offer__card-desc">We invest in Georgian talent with free tutorials, mentorships, and
-                    certification
-                    discounts.</p>
+                <p class="offer__card-title">{{ language.t('offer_growth') }}</p>
+                <p class="offer__card-desc">{{ language.t('offer_growthDesc') }}</p>
             </div>
-
         </div>
-
     </section>
 
-
-
-
     <section class="values" aria-labelledby="valuesHeading">
-
-        <p class="values__eyebrow">Our Values</p>
-
+        <p class="values__eyebrow">{{ language.t('values_eyebrow') }}</p>
         <h2 class="values__heading" id="valuesHeading">
-            What we
-            <em>stand for</em>
+            {{ language.t('values_headingPart') }}
+            <em>{{ language.t('values_headingEm') }}</em>
         </h2>
 
         <div class="values__grid">
-
             <div class="values__card">
                 <span class="values__card-number" aria-hidden="true">01</span>
-                <p class="values__card-title">Collaboration</p>
-                <p class="values__card-desc">Together is better. We build bridges between talent and opportunity.</p>
+                <p class="values__card-title">{{ language.t('values_collaboration') }}</p>
+                <p class="values__card-desc">{{ language.t('values_collaborationDesc') }}</p>
             </div>
-
             <div class="values__card">
                 <span class="values__card-number" aria-hidden="true">02</span>
-                <p class="values__card-title">Transparency</p>
-                <p class="values__card-desc">Every step is clear. Trust is built one honest interaction at a time.</p>
+                <p class="values__card-title">{{ language.t('values_transparency') }}</p>
+                <p class="values__card-desc">{{ language.t('values_transparencyDesc') }}</p>
             </div>
-
             <div class="values__card">
                 <span class="values__card-number" aria-hidden="true">03</span>
-                <p class="values__card-title">Empowerment</p>
-                <p class="values__card-desc">Uplifting Georgian voices on the global stage with real opportunity.</p>
+                <p class="values__card-title">{{ language.t('values_empowerment') }}</p>
+                <p class="values__card-desc">{{ language.t('values_empowermentDesc') }}</p>
             </div>
-
             <div class="values__card">
                 <span class="values__card-number" aria-hidden="true">04</span>
-                <p class="values__card-title">Passion</p>
-                <p class="values__card-desc">We love what we build—and that shows in every feature we ship.</p>
+                <p class="values__card-title">{{ language.t('values_passion') }}</p>
+                <p class="values__card-desc">{{ language.t('values_passionDesc') }}</p>
             </div>
-
         </div>
-
     </section>
 
-
-
-
     <div class="panels">
-
-        <!-- LEFT: For Freelancers -->
         <div class="panel panel--light" aria-labelledby="freelancerPanelHeading">
-            <p class="panel__eyebrow">For Freelancers</p>
-            <h2 class="panel__heading" id="freelancerPanelHeading">Your career,<br><em>amplified</em></h2>
+            <p class="panel__eyebrow">{{ language.t('freelancerPanel_eyebrow') }}</p>
+            <h2 class="panel__heading" id="freelancerPanelHeading">
+                {{ language.t('freelancerPanel_headingPart') }}<br><em>{{ language.t('freelancerPanel_headingEm') }}</em>
+            </h2>
 
             <ul class="steps" aria-label="Steps for freelancers">
                 <li class="step">
                     <div class="step__number" aria-hidden="true">1</div>
                     <div class="step__body">
-                        <p class="step__title">Connect</p>
-                        <p class="step__desc">Post your skills and get matched with the right projects within hours.</p>
+                        <p class="step__title">{{ language.t('freelancerPanel_step1Title') }}</p>
+                        <p class="step__desc">{{ language.t('freelancerPanel_step1Desc') }}</p>
                     </div>
                 </li>
                 <li class="step">
                     <div class="step__number" aria-hidden="true">2</div>
                     <div class="step__body">
-                        <p class="step__title">Collaborate</p>
-                        <p class="step__desc">Share screens, brainstorm in real time, and build alongside your clients.
-                        </p>
+                        <p class="step__title">{{ language.t('freelancerPanel_step2Title') }}</p>
+                        <p class="step__desc">{{ language.t('freelancerPanel_step2Desc') }}</p>
                     </div>
                 </li>
                 <li class="step">
                     <div class="step__number" aria-hidden="true">3</div>
                     <div class="step__body">
-                        <p class="step__title">Celebrate</p>
-                        <p class="step__desc">Showcase completed work in our community gallery for lasting recognition.
-                        </p>
+                        <p class="step__title">{{ language.t('freelancerPanel_step3Title') }}</p>
+                        <p class="step__desc">{{ language.t('freelancerPanel_step3Desc') }}</p>
                     </div>
                 </li>
                 <li class="step">
                     <div class="step__number" aria-hidden="true">4</div>
                     <div class="step__body">
-                        <p class="step__title">Grow</p>
-                        <p class="step__desc">Access free tutorials, mentorships, and exclusive certification discounts.
-                        </p>
+                        <p class="step__title">{{ language.t('freelancerPanel_step4Title') }}</p>
+                        <p class="step__desc">{{ language.t('freelancerPanel_step4Desc') }}</p>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <!-- RIGHT: For Businesses -->
         <div class="panel panel--dark" aria-labelledby="businessPanelHeading">
-            <p class="panel__eyebrow">For Businesses</p>
-            <h2 class="panel__heading" id="businessPanelHeading">Your vision,<br><em>realized</em></h2>
+            <p class="panel__eyebrow">{{ language.t('businessPanel_eyebrow') }}</p>
+            <h2 class="panel__heading" id="businessPanelHeading">
+                {{ language.t('businessPanel_headingPart') }}<br><em>{{ language.t('businessPanel_headingEm') }}</em>
+            </h2>
 
             <ul class="steps" aria-label="Steps for businesses">
                 <li class="step">
                     <div class="step__number" aria-hidden="true">1</div>
                     <div class="step__body">
-                        <p class="step__title">Create Your Account</p>
-                        <p class="step__desc">Sign up in under a minute — no lengthy forms, no friction.</p>
+                        <p class="step__title">{{ language.t('businessPanel_step1Title') }}</p>
+                        <p class="step__desc">{{ language.t('businessPanel_step1Desc') }}</p>
                     </div>
                 </li>
                 <li class="step">
                     <div class="step__number" aria-hidden="true">2</div>
                     <div class="step__body">
-                        <p class="step__title">Post &amp; Customize</p>
-                        <p class="step__desc">Define your project scope, budget, and timeline with precision.</p>
+                        <p class="step__title">{{ language.t('businessPanel_step2Title') }}</p>
+                        <p class="step__desc">{{ language.t('businessPanel_step2Desc') }}</p>
                     </div>
                 </li>
                 <li class="step">
                     <div class="step__number" aria-hidden="true">3</div>
                     <div class="step__body">
-                        <p class="step__title">Match Instantly</p>
-                        <p class="step__desc">AI-powered recommendations surface the best candidates within seconds.</p>
+                        <p class="step__title">{{ language.t('businessPanel_step3Title') }}</p>
+                        <p class="step__desc">{{ language.t('businessPanel_step3Desc') }}</p>
                     </div>
                 </li>
                 <li class="step">
                     <div class="step__number" aria-hidden="true">4</div>
                     <div class="step__body">
-                        <p class="step__title">Work &amp; Pay</p>
-                        <p class="step__desc">Milestone-based releases ensure total peace of mind throughout delivery.
-                        </p>
+                        <p class="step__title">{{ language.t('businessPanel_step4Title') }}</p>
+                        <p class="step__desc">{{ language.t('businessPanel_step4Desc') }}</p>
                     </div>
                 </li>
             </ul>
         </div>
-
     </div>
 </div>

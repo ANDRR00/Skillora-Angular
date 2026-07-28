@@ -5,7 +5,7 @@
         <line x1="19" y1="12" x2="5" y2="12"></line>
         <polyline points="12 19 5 12 12 5"></polyline>
       </svg>
-      Back to Projects
+      {{ languageService.t('projectDetail_backBtn') }}
     </button>
 
     <div class="detail-grid">
@@ -17,7 +17,7 @@
               <img [src]="project.coverImageUrl" [alt]="project.title" class="cover-image" />
             } @else {
               <div class="cover-placeholder">
-                <span>PROJECT COVER IMAGE</span>
+                <span>{{ languageService.t('projectDetail_coverPlaceholder') }}</span>
               </div>
             }
 
@@ -34,9 +34,9 @@
               <div class="fact">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="9"></circle>
-                  <polyline points="12 7 12 12 15 14"></polyline>
+                  <polyline points="12 7 12 15 14"></polyline>
                 </svg>
-                <span>Posted {{ relativeTime(project.postedAt) }}</span>
+                <span>{{ languageService.t('projectDetail_postedPrefix') }}{{ relativeTime(project.postedAt) }}</span>
               </div>
               <div class="fact">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -50,18 +50,12 @@
                   <rect x="2" y="7" width="20" height="14" rx="2"></rect>
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
-                <span>Fixed</span>
+                <span>{{ languageService.t('projectDetail_fixed') }}</span>
               </div>
-              <!-- <div class="fact">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"></polygon>
-                </svg>
-                <span>{{ project.experienceLevel }}</span>
-              </div> -->
             </div>
 
             <section class="section">
-              <h2 class="section-heading">Project Description</h2>
+              <h2 class="section-heading">{{ languageService.t('projectDetail_descriptionHeading') }}</h2>
               @for (paragraph of project.description; track $index) {
                 <p class="description-paragraph">{{ paragraph }}</p>
               }
@@ -70,7 +64,7 @@
             <hr class="divider" />
 
             <section class="section">
-              <h2 class="section-heading">Required Skills</h2>
+              <h2 class="section-heading">{{ languageService.t('projectDetail_skillsHeading') }}</h2>
               <div class="skill-list">
                 @for (skill of project.skills; track skill) {
                   <span class="skill-pill">{{ skill }}</span>
@@ -81,7 +75,7 @@
         </article>
 
         <article class="content-card gallery-card">
-          <h2 class="section-heading">Project Gallery</h2>
+          <h2 class="section-heading">{{ languageService.t('projectDetail_galleryHeading') }}</h2>
 
           <div class="gallery">
             @if (project.gallery[0]; as mainSlot) {
@@ -124,7 +118,7 @@
               <div class="poster-meta">
                 <div class="poster-name">{{ poster.name }}</div>
                 @if (poster.verified) {
-                  <div class="poster-verified">Verified Company</div>
+                  <div class="poster-verified">{{ languageService.t('projectDetail_verifiedCompany') }}</div>
                 }
               </div>
             </div>
@@ -141,7 +135,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Website</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_website') }}</div>
                   <div class="info-value">{{ poster.website }}</div>
                 </div>
               </div>
@@ -153,7 +147,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Phone</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_phone') }}</div>
                   <div class="info-value">{{ poster.phone }}</div>
                 </div>
               </div>
@@ -171,7 +165,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Address</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_address') }}</div>
                   <div class="info-value">{{ poster.address }}</div>
                 </div>
               </div>
@@ -186,7 +180,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Member Since</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_memberSince') }}</div>
                   <div class="info-value">{{ poster.memberSinceYear }}</div>
                 </div>
               </div>
@@ -194,7 +188,7 @@
 
             <hr class="divider" />
 
-            <h3 class="summary-heading">Project Summary</h3>
+            <h3 class="summary-heading">{{ languageService.t('projectDetail_summaryHeading') }}</h3>
             <div class="poster-info-list">
               <div class="info-row">
                 <span class="info-icon">
@@ -204,7 +198,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Budget</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_budget') }}</div>
                   <div class="info-value">{{ formatBudget(project) }}</div>
                 </div>
               </div>
@@ -217,7 +211,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Category</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_category') }}</div>
                   <div class="info-value">{{ project.category }}</div>
                 </div>
               </div>
@@ -230,7 +224,7 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Status</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_status') }}</div>
                   <div class="info-value">{{ project.status }}</div>
                 </div>
               </div>
@@ -245,14 +239,14 @@
                   </svg>
                 </span>
                 <div>
-                  <div class="info-label">Posted</div>
+                  <div class="info-label">{{ languageService.t('projectDetail_posted') }}</div>
                   <div class="info-value">{{ relativeTime(project.postedAt) }}</div>
                 </div>
               </div>
             </div>
 
             <button type="button" class="btn-apply" (click)="applyForProject()">
-              Apply for Project
+              {{ languageService.t('projectDetail_applyBtn') }}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -260,7 +254,7 @@
             </button>
 
             <a [href]="'https://' + poster.website" target="_blank" rel="noopener noreferrer" class="btn-visit">
-              Visit Website
+              {{ languageService.t('projectDetail_visitWebsiteBtn') }}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -270,7 +264,7 @@
           </div>
         } @else {
           <div class="poster-card state-message">
-            <p>Loading company…</p>
+            <p>{{ languageService.t('projectDetail_loadingCompany') }}</p>
           </div>
         }
       </aside>
@@ -278,6 +272,6 @@
   </div>
 } @else {
   <div class="state-message">
-    <p>Loading project…</p>
+    <p>{{ languageService.t('projectDetail_loadingProject') }}</p>
   </div>
 }

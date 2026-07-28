@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FreelancerRegistrationRequest } from '../interfaces/freelancer-registration-request';
@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { FreelancerService } from '../services/freelancer-service';
 import { AuthService } from '../services/auth-service';
 import { FreelancerProfileService } from '../services/freelancer-profile-service';
+import { LanguageService } from '../services/language-service';
 
 const ALLOWED_RESUME_TYPES = [
   'application/pdf',
@@ -57,6 +58,8 @@ export class FreelancerRegistration {
       terms: [false, Validators.requiredTrue]
     });
   }
+
+  language = inject(LanguageService)
 
   private showAlert(title: string, text: string, icon: 'success' | 'error' | 'warning' | 'info'): void {
     Swal.fire({

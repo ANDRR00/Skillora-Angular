@@ -4,25 +4,24 @@
         <div class="personLeft">
             <div class="profilePicture">
                 <img [src]="profile()?.profile_pic_url || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'"
-                    [alt]="(profile()?.first_name ?? 'Freelancer') + ' profile picture'" id="profilePic">
+                    [alt]="(profile()?.first_name ?? languageService.t('freelancerProfile_defaultFreelancerAlt')) + ' profile picture'" id="profilePic">
             </div>
         </div>
         <div class="personRight">
             <div class="personInfo">
                 <div class="statusTop" style="padding: 0px 8px;">
-                    freelancer
+                    {{ languageService.t('freelancerProfile_badgeFreelancer') }}
                 </div>
                 <div class="infoLower">
                     <span class="name" id="freelancerNameHeading">{{ profile()?.first_name }} {{ profile()?.last_name }}</span>
                     <div class="location">
                         <img src="images/realLocation.svg" alt="" aria-hidden="true">
-                        <span style="color: #8894a8;" class="locationSpan">{{ profile()?.city }}, {{ profile()?.street
-                            }}</span>
+                        <span style="color: #8894a8;" class="locationSpan">{{ profile()?.city }}, {{ profile()?.street }}</span>
                     </div>
                 </div>
             </div>
             <div class="personAge">
-                <div class="age" style="color: #8894a8;" id="ageLabel">age</div>
+                <div class="age" style="color: #8894a8;" id="ageLabel">{{ languageService.t('freelancerProfile_age') }}</div>
                 <span class="ageBox" aria-labelledby="ageLabel">{{ age() }}</span>
             </div>
         </div>
@@ -30,37 +29,38 @@
 
     <section class="profileAbout" aria-labelledby="aboutSectionHeading">
         <article class="aboutInfo">
-            <p id="aboutSectionHeading">about me</p>
+            <p id="aboutSectionHeading">{{ languageService.t('freelancerProfile_aboutMe') }}</p>
             <p class="aboutMe">{{ profile()?.about_me }}</p>
         </article>
         <hr>
         <div class="resumePortfolioWrapper">
             <div class="resumePortfolio">
                 <div class="portfolio">
-                    <span id="portfolioLabel">portfolio</span>
+                    <span id="portfolioLabel">{{ languageService.t('freelancerProfile_portfolio') }}</span>
                     <p><img src="images/web-svgrepo-com.svg" alt="" aria-hidden="true">
                         <a [href]="profile()?.portfolio" target="_blank" rel="noopener" class="website" aria-labelledby="portfolioLabel">{{ profile()?.portfolio }}</a>
                     </p>
                 </div>
                 <div class="resume">
-                    <span id="resumeLabel">resume</span>
+                    <span id="resumeLabel">{{ languageService.t('freelancerProfile_resume') }}</span>
                     <button class="resumeDownload" (click)="downloadResume()" type="button" aria-labelledby="resumeLabel">
                         <img src="images/download.svg" alt="" aria-hidden="true">
-                        download resume
+                        {{ languageService.t('freelancerProfile_downloadResume') }}
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-
     <section class="projectSection" aria-labelledby="projectsSectionHeading">
         <div class="projectBar">
             <div class="projectsHeader">
-                <p id="projectsSectionHeading">Projects</p>
-                <span>projects status and count</span>
+                <p id="projectsSectionHeading">{{ languageService.t('freelancerProfile_projectsHeading') }}</p>
+                <span>{{ languageService.t('freelancerProfile_projectsSubheading') }}</span>
             </div>
-            <button class="allProjectsView" type="button" aria-label="View all projects by this freelancer">View All</button>
+            <button class="allProjectsView" type="button" [attr.aria-label]="languageService.t('freelancerProfile_viewAllAria')">
+                {{ languageService.t('freelancerProfile_viewAllBtn') }}
+            </button>
         </div>
 
         <div class="projects">
@@ -71,21 +71,21 @@
                 </div>
                 <div class="lowerCard">
                     <div class="projectTitle" id="project1CardTitle">
-                        pathcwork CMS
+                        patchwork CMS
                     </div>
                     <div class="projectDetails">
                         <p class="projectBody">
                             Headless CMS dashboard for editorial teams. Features real-time collaboration and a custom
                             rich text editor.
                         </p>
-                        <div class="projectNeeds" aria-label="Skills used">
+                        <div class="projectNeeds" [attr.aria-label]="languageService.t('freelancerProfile_skillsUsedAria')">
                             <button class="skill" type="button">React</button>
                             <button class="skill" type="button">Figma</button>
                             <button class="skill" type="button">TypeScript</button>
                         </div>
                         <button class="projectView" type="button" aria-label="View project: Patchwork CMS">
                             <img src="images/open-in-new-svgrepo-com.svg" alt="" aria-hidden="true">
-                            View Project
+                            {{ languageService.t('freelancerProfile_viewProjectBtn') }}
                         </button>
                     </div>
                 </div>
