@@ -52,12 +52,13 @@ export class AllServices {
   languageService = inject(LanguageService);
   private readonly router = inject(Router);
 
-   readonly categories = this.categoriesService.categories;
+  readonly categories = this.categoriesService.categories;
 
-  readonly currencies: CurrencyOption[] = [
-    { code: 'GEL', symbol: '₾', label: 'GEL' },
-    { code: 'USD', symbol: '$', label: 'USD' },
-  ];
+  // was: readonly currencies: CurrencyOption[] = [...]
+  readonly currencies = computed<CurrencyOption[]>(() => [
+    { code: 'GEL', symbol: '₾', label: this.languageService.t('currency_gel') },
+    { code: 'USD', symbol: '$', label: this.languageService.t('currency_usd') },
+  ]);
 
   private readonly GEL_TO_USD_RATE = 0.37;
 
@@ -100,7 +101,8 @@ export class AllServices {
   }
 
   formatBudget(service: Service): string {
-    const currency = this.currencies.find((c) => c.code === this.activeCurrency())!;
+    // .find() now reads from the computed signal — call it as a function
+    const currency = this.currencies().find((c) => c.code === this.activeCurrency())!;
     const min = this.convertFromGel(service.budgetMin, currency.code);
     const max = this.convertFromGel(service.budgetMax, currency.code);
     return `${currency.symbol}${min.toLocaleString()} – ${currency.symbol}${max.toLocaleString()}`;
@@ -142,6 +144,4 @@ export class AllServices {
         : [],
     };
   }
-
-
 }

@@ -22,7 +22,7 @@
 </div>
 
 <div class="currency-switcher" role="group" [attr.aria-label]="languageService.t('projects_currencyAria')">
-  @for (currency of currencies; track currency.code) {
+  @for (currency of currencies(); track currency.code) {
     <button
       type="button"
       class="currency-pill"

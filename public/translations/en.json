@@ -374,6 +374,8 @@
   "carousel_story4_company": "Cloudera Georgia",
   "carousel_story4_project": "CI/CD Pipeline Modernization",
   "carousel_story4_quote": "Giorgi partnered with Cloudera's engineering team to rebuild their deployment pipeline from the ground up, with every milestone tracked openly through Skillora.",
-  "carousel_story4_result": "Deployment time cut from 45 minutes to under 4. Incidents down 60%."
+  "carousel_story4_result": "Deployment time cut from 45 minutes to under 4. Incidents down 60%.",
+  "currency_gel": "GEL",
+  "currency_usd": "USD"
 
 }

@@ -51,10 +51,10 @@ export class AllProjects {
 
    readonly categories = this.categoriesService.categories;
 
-  readonly currencies: CurrencyOption[] = [
-    { code: 'GEL', symbol: '₾', label: 'GEL' },
-    { code: 'USD', symbol: '$', label: 'USD' },
-  ];
+  readonly currencies = computed<CurrencyOption[]>(() => [
+      { code: 'GEL', symbol: '₾', label: this.languageService.t('currency_gel') },
+      { code: 'USD', symbol: '$', label: this.languageService.t('currency_usd') },
+    ]);
 
   private readonly GEL_TO_USD_RATE = 0.37;
 
@@ -107,11 +107,11 @@ export class AllProjects {
   }
 
   formatBudget(project: Project): string {
-    const currency = this.currencies.find((c) => c.code === this.activeCurrency())!;
-    const min = this.convertFromGel(project.budgetMin, currency.code);
-    const max = this.convertFromGel(project.budgetMax, currency.code);
-    return `${currency.symbol}${min.toLocaleString()} – ${currency.symbol}${max.toLocaleString()}`;
-  }
+  const currency = this.currencies().find((c) => c.code === this.activeCurrency())!;
+  const min = this.convertFromGel(project.budgetMin, currency.code);
+  const max = this.convertFromGel(project.budgetMax, currency.code);
+  return `${currency.symbol}${min.toLocaleString()} – ${currency.symbol}${max.toLocaleString()}`;
+}
 
   private convertFromGel(amountInGel: number, target: CurrencyCode): number {
     if (target === 'GEL') return amountInGel;
