@@ -45,7 +45,8 @@ export class EmployerRegistration {
       companyWebsite: [''],
       companyPhone: ['', [
         Validators.required,
-        Validators.maxLength(9)
+        Validators.minLength(9),
+        Validators.maxLength(10)
       ]],
       terms: [false, Validators.requiredTrue]
     });
