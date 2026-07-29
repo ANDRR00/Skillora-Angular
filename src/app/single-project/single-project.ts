@@ -48,7 +48,7 @@ interface CompanyPoster {
   id: string;
   name: string;
   verified: boolean; // NOT in current API — placeholder, always false
-  description: string;
+  description: string; // maps to company_description / company_description_ka
   website: string;
   phone: string;
   address: string;
@@ -85,12 +85,18 @@ export class SingleProject {
     return post ? this.toProjectDetail(post, lang) : null;
   });
 
-  readonly poster = toSignal<CompanyPoster | null>(
+  private readonly rawProfile = toSignal(
     this.employerProfileService
       .getCompanyProfileById(Number(this.userId))
-      .pipe(map((profile) => this.toCompanyPoster(profile))),
-    { initialValue: null },
+      .pipe(map((profile) => profile as EmployerProfileArch | null)),
+    { initialValue: null as EmployerProfileArch | null },
   );
+
+  readonly poster = computed(() => {
+    const profile = this.rawProfile();
+    const lang = this.languageService.currentLang();
+    return profile ? this.toCompanyPoster(profile, lang) : null;
+  });
 
   formatBudget(project: ProjectDetail): string {
     return `$${project.budgetMin.toLocaleString()} – $${project.budgetMax.toLocaleString()}`;
@@ -154,12 +160,17 @@ export class SingleProject {
     };
   }
 
-  private toCompanyPoster(profile: EmployerProfileArch): CompanyPoster {
+  private toCompanyPoster(profile: EmployerProfileArch, lang: Lang): CompanyPoster {
+    const isKa = lang === 'ka';
+    const description = isKa
+      ? (profile.company_description_ka || profile.company_description)
+      : profile.company_description;
+
     return {
       id: String(profile.id),
       name: profile.company_name ?? '',
       verified: false,
-      description: profile.company_description ?? '',
+      description: description ?? '',
       website: profile.company_website ?? '',
       phone: profile.company_phone ?? '',
       address: profile.company_address ?? '',

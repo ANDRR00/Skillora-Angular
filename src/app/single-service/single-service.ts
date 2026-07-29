@@ -50,7 +50,7 @@ interface FreelancerPoster {
   fullName: string;
   headline: string; // NOT in current API — placeholder
   avatarUrl: string | null;
-  description: string; // maps to about_me
+  description: string; // maps to about_me / about_me_ka
   location: string; // maps to city
   yearsExperience: number;
   specialty: string; // NOT in current API — placeholder
@@ -86,12 +86,18 @@ export class SingleService {
     return post ? this.toServiceDetail(post, lang) : null;
   });
 
-  readonly freelancer = toSignal<FreelancerPoster | null>(
+  private readonly rawProfile = toSignal(
     this.freelancerProfileService
       .getFreelancerProfileById(Number(this.userId))
-      .pipe(map((profile) => this.toFreelancerPoster(profile))),
-    { initialValue: null },
+      .pipe(map((profile) => profile as FreelancerProfileArch | null)),
+    { initialValue: null as FreelancerProfileArch | null },
   );
+
+  readonly freelancer = computed(() => {
+    const profile = this.rawProfile();
+    const lang = this.languageService.currentLang();
+    return profile ? this.toFreelancerPoster(profile, lang) : null;
+  });
 
   formatPriceRange(service: ServiceDetail): string {
     return `$${service.priceMin.toLocaleString()} – $${service.priceMax.toLocaleString()}`;
@@ -146,13 +152,16 @@ export class SingleService {
     };
   }
 
-  private toFreelancerPoster(profile: FreelancerProfileArch): FreelancerPoster {
+  private toFreelancerPoster(profile: FreelancerProfileArch, lang: Lang): FreelancerPoster {
+    const isKa = lang === 'ka';
+    const description = isKa ? (profile.about_me_ka || profile.about_me) : profile.about_me;
+
     return {
       id: String(profile.id),
       fullName: `${profile.first_name} ${profile.last_name}`.trim(),
       headline: '—',
       avatarUrl: profile.profile_pic_url || null,
-      description: profile.about_me ?? '',
+      description: description ?? '',
       location: profile.city ?? '',
       yearsExperience: profile.experience,
       specialty: '—',

@@ -9,6 +9,7 @@ export interface FreelancerProfileArch {
   personal_id: string;
   birth_date: string;
   about_me: string;
+  about_me_ka?: string;
   portfolio: string;
   resume_url: string;
   profile_pic_url: string;
