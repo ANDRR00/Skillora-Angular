@@ -33,7 +33,6 @@
   }
 
   .eyebrow{
-    font-family: var(--font-body, "Inter", sans-serif);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 2.5px;
@@ -41,7 +40,6 @@
   }
 
   .title{
-    font-family: var(--font-heading, "Georgia", "Iowan Old Style", "Times New Roman", serif);
     font-size: clamp(2.4rem, 5vw, 3.4rem);
     font-weight: 700;
     color: #f5f1e8;
@@ -61,7 +59,6 @@
   }
 
   .subtitle{
-    font-family: var(--font-body, "Inter", sans-serif);
     font-size: 1.05rem;
     color: var(--slate, #8894a8);
     line-height: 1.6;
@@ -105,7 +102,6 @@
   }
 
   .filter-pill{
-    font-family: var(--font-body, "Inter", sans-serif);
     font-size: 0.9rem;
     font-weight: 500;
     background-color: transparent;
@@ -163,7 +159,6 @@
   }
 
   .currency-pill{
-    font-family: var(--font-body, "Inter", sans-serif);
     font-size: 0.82rem;
     font-weight: 600;
     background-color: transparent;
@@ -228,7 +223,6 @@
     grid-column: 1 / -1;
     text-align: center;
     color: var(--text-secondary);
-    font-family: var(--font-body, "Inter", sans-serif);
     padding: 40px 0;
   }
 }
@@ -268,7 +262,6 @@
     right: 14px;
     background: rgba(13, 17, 25, 0.85);
     color: var(--gold);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 6px 12px;
@@ -288,7 +281,6 @@
   }
 
   .card-title{
-    font-family: var(--font-heading, "Georgia", "Iowan Old Style", "Times New Roman", serif);
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -296,7 +288,6 @@
   }
 
   .card-description{
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -312,7 +303,6 @@
   }
 
   .tag{
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--gold);
@@ -339,7 +329,6 @@
   }
 
   .budget-label{
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -347,7 +336,6 @@
   }
 
   .budget-value{
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--gold);
@@ -356,7 +344,6 @@
 
 /* ============ Buttons ============ */
 .btn{
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   border: none;

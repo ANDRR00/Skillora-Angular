@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { effect, inject, Injectable, signal } from '@angular/core';
 
 export type Lang = 'en' | 'ka';
 
@@ -16,12 +17,22 @@ export class LanguageService {
       : null;
 
   private http = inject(HttpClient);
-  readonly translations = signal<Record<string, string>>({});
+  private document = inject(DOCUMENT);
 
+  readonly translations = signal<Record<string, string>>({});
   readonly currentLang = signal<Lang>(this.stored === 'ka' ? 'ka' : 'en');
 
   constructor() {
     this.loadTranslations(this.currentLang());
+
+    // Keep <html> class in sync with the language signal, so
+    // html.lang-en / html.lang-ka drives --font-body in styles.scss.
+    effect(() => {
+      const lang = this.currentLang();
+      const classList = this.document.documentElement.classList;
+      classList.remove('lang-en', 'lang-ka');
+      classList.add(`lang-${lang}`);
+    });
   }
 
   t(key: string): string {
@@ -33,15 +44,11 @@ export class LanguageService {
   }
 
   setLang(lang: Lang): void {
-
     this.currentLang.set(lang);
-
     this.loadTranslations(lang);
-
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(STORAGE_KEY, lang);
     }
-
   }
 
   private loadTranslations(lang: Lang): void {

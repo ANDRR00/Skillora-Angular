@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AlkSanet';
+  src: url('/fonts/alk-sanet-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
   --ink:        #14181f;
   --ink-2:      #1b212b;
@@ -12,16 +29,25 @@
   --text-light: #f4efe1;
   --line:       rgba(244,239,225,0.14);
   --line-soft:  rgba(34,30,23,0.16);
+}
 
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body:    "Inter", -apple-system, sans-serif;
-  --font-mono:    "IBM Plex Mono", monospace;
+html.lang-en{
+  --font-body:    'Montserrat', -apple-system, sans-serif;
+  --font-display: 'Montserrat', -apple-system, sans-serif;
+  --font-mono:    'Montserrat', -apple-system, sans-serif;
+}
+
+html.lang-ka{
+  --font-body:    'AlkSanet', -apple-system, sans-serif;
+  --font-display: 'AlkSanet', -apple-system, sans-serif;
+  --font-mono:    'AlkSanet', -apple-system, sans-serif;
 }
 
 *{ box-sizing:border-box; }
 body{
   margin:0;
   font-family:var(--font-body);
+  font-synthesis: none; /* both fonts only ship regular weight — avoid fake-bold */
   background:
     radial-gradient(ellipse 900px 600px at 50% -10%, #1e2532 0%, var(--ink) 55%),
     var(--ink);

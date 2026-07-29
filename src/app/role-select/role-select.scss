@@ -12,7 +12,6 @@
   background: none;
   border: none;
   color: var(--slate);
-  font-family: var(--font-mono);
   font-size: .8rem;
   letter-spacing: .06em;
   cursor: pointer;
@@ -21,7 +20,6 @@
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
   font-size: .72rem;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -30,7 +28,6 @@
 }
 
 .hero-title {
-  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(2.1rem, 5vw, 3.4rem);
   line-height: 1.05;
@@ -81,7 +78,6 @@
     0 1px 0 rgba(255,255,255,0.5) inset,
     0 18px 34px -14px rgba(0,0,0,0.55),
     0 2px 0 rgba(0,0,0,0.25);
-  font-family: var(--font-body);
 
   .rivet {
     position: absolute;
@@ -102,7 +98,7 @@
   }
 
   .card-eyebrow {
-    font-family: var(--font-mono);
+
     font-size: .68rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -111,7 +107,7 @@
   }
 
   .card-title {
-    font-family: var(--font-display);
+
     font-weight: 600;
     font-size: 1.7rem;
     margin-bottom: .35rem;
@@ -144,7 +140,7 @@
     align-self: stretch;
     border-top: 1.5px dashed rgba(34,30,23,0.28);
     padding-top: .7rem;
-    font-family: var(--font-mono);
+
     font-size: .66rem;
     letter-spacing: .14em;
     color: #8a7a55;

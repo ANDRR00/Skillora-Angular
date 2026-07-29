@@ -41,7 +41,6 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        font-family: 'Inter', sans-serif;
         font-size: 11px;
         font-weight: 600;
         letter-spacing: 0.18em;
@@ -59,7 +58,6 @@
 
     /* ── Heading ── */
     &__heading {
-        font-family: 'Playfair Display', serif;
         font-size: clamp(32px, 4.5vw, 48px);
         font-weight: 600;
         line-height: 1.2;
@@ -122,7 +120,6 @@
 
     /* ── Card copy ── */
     &__card-title {
-        font-family: 'Playfair Display', serif;
         font-size: 17px;
         font-weight: 600;
         color: var(--text-dark-heading);
@@ -197,7 +194,6 @@
   --radius-lg: 14px;
   --radius-md: 10px;
   --radius-pill: 999px;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .projects-section {
@@ -252,7 +248,6 @@
   }
 
   .subheading {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin: 0;
@@ -306,7 +301,6 @@
     right: 14px;
     background: rgba(13, 17, 25, 0.85);
     color: var(--gold);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 6px 12px;
@@ -332,7 +326,7 @@
   }
 
   .card-description {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -348,7 +342,7 @@
   }
 
   .tag {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--gold);
@@ -380,7 +374,7 @@
   }
 
   .budget-label {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -388,7 +382,7 @@
   }
 
   .budget-value {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--gold);
@@ -412,7 +406,6 @@
 /* ---------- Buttons ---------- */
 
 .btn {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
   border-radius: var(--radius-md);
@@ -472,7 +465,6 @@
   --text-secondary: #8b93a7;
   --gold: #d9a441;
   --radius-lg: 14px;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .guides-section {
@@ -515,7 +507,7 @@
   }
 
   .subheading {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin: 0;
@@ -586,7 +578,7 @@
   }
 
   .card-description {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -595,7 +587,7 @@
   }
 
   .read-guide-link {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--gold);

@@ -37,7 +37,6 @@ header {
       gap: 6px;
 
       button {
-        font-family: var(--font-body, "Inter", sans-serif);
         font-size: 0.9rem;
         background: transparent;
         border: none;
@@ -186,7 +185,7 @@ header {
       }
 
       button {
-        font-family: var(--font-body, "Inter", sans-serif);
+      
         font-size: 0.9rem;
         font-weight: 600;
         padding: 10px 20px;
@@ -235,7 +234,7 @@ header {
     }
 
     .lang-toggle {
-  font-family: var(--font-body, "Inter", sans-serif);
+
   font-size: 0.85rem;
   font-weight: 600;
   background: transparent;
@@ -302,7 +301,6 @@ header {
        size (0.9rem / 10px 20px padding) on every screen size, which was
        a major contributor to the sub-350px overflow for logged-in users. */
     .logout {
-      font-family: var(--font-body, "Inter", sans-serif);
       font-size: 0.9rem;
       font-weight: 600;
       padding: 10px 20px;
@@ -386,7 +384,7 @@ header {
 
 
   button {
-    font-family: var(--font-body, "Inter", sans-serif);
+  
     font-size: 1rem;
     background: transparent;
     border: none;

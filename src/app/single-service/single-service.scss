@@ -19,7 +19,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  font-family: var(--font-body, "Inter", sans-serif);
 
   @media (max-width: 1080px) {
     padding: 36px;
@@ -40,7 +39,6 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-body, "Inter", sans-serif);
     font-size: 0.85rem;
     font-weight: 600;
     color: #dfe4ee;
@@ -229,7 +227,6 @@
           }
 
           .section-heading {
-            font-family: var(--font-body, "Inter", sans-serif);
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -468,7 +465,6 @@
           align-items: center;
           justify-content: center;
           gap: 8px;
-          font-family: var(--font-body, "Inter", sans-serif);
           font-size: 0.92rem;
           font-weight: 700;
           padding: 13px 20px;
@@ -508,7 +504,6 @@
           align-items: center;
           justify-content: center;
           gap: 6px;
-          font-family: var(--font-body, "Inter", sans-serif);
           font-size: 0.85rem;
           font-weight: 700;
           padding: 12px 14px;
@@ -543,6 +538,5 @@
   align-items: center;
   justify-content: center;
   color: var(--slate, #6f6a5c);
-  font-family: var(--font-body, "Inter", sans-serif);
   font-size: 0.95rem;
 }

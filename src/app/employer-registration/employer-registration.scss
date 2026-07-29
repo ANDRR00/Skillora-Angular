@@ -12,7 +12,6 @@
   background: none;
   border: none;
   color: var(--slate);
-  font-family: var(--font-mono);
   font-size: .8rem;
   letter-spacing: .06em;
   cursor: pointer;
@@ -38,7 +37,6 @@
   }
 
   h2 {
-    font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.7rem;
     margin: .1rem 0 .3rem;
@@ -51,7 +49,7 @@
   }
 
   .card-eyebrow {
-    font-family: var(--font-mono);
+
     font-size: .68rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -109,7 +107,7 @@
       display: flex;
       align-items: center;
       gap: .5rem;
-      font-family: var(--font-mono);
+  
       font-size: .68rem;
       letter-spacing: .04em;
       color: #9a917a;
@@ -136,7 +134,7 @@
   }
 
   label {
-    font-family: var(--font-mono);
+
     font-size: .68rem;
     letter-spacing: .08em;
     text-transform: uppercase;
@@ -144,7 +142,6 @@
   }
 
   input, textarea {
-    font-family: var(--font-body);
     font-size: .92rem;
     padding: .65rem .75rem;
     border-radius: 8px;
@@ -166,7 +163,6 @@
   textarea {
     min-height: 68px;
     resize: vertical;
-    font-family: var(--font-body);
   }
 
   .checkbox {
@@ -199,7 +195,6 @@
     border-radius: 9px;
     background: linear-gradient(160deg, var(--brass-2), var(--brass));
     color: #241a09;
-    font-family: var(--font-body);
     font-weight: 600;
     font-size: .94rem;
     cursor: pointer;
