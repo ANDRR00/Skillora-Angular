@@ -7,6 +7,7 @@ import { AllServicesService, FullServiceArch } from '../services/all-services-se
 import { FreelancerProfileService } from '../services/freelancer-profile-service';
 import { FreelancerProfileArch } from '../interfaces/freelancer-profile-arch';
 import { LanguageService, Lang } from '../services/language-service';
+import { TruncatePipe } from "../truncate-pipe";
 
 /**
  * NOTE: `pricingType` and `experienceLevel` (the "Senior" tier shown in the
@@ -60,7 +61,7 @@ interface FreelancerPoster {
 
 @Component({
   selector: 'app-single-service',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TruncatePipe],
   templateUrl: './single-service.html',
   styleUrl: './single-service.scss',
 })

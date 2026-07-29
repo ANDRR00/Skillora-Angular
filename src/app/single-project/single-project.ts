@@ -7,6 +7,7 @@ import { AllProjectService, FullProjectArch } from '../services/all-project-serv
 import { EmployerProfileService } from '../services/employer-profile-service';
 import { EmployerProfileArch } from '../interfaces/employer-profile';
 import { LanguageService, Lang } from '../services/language-service';
+import { TruncatePipe } from "../truncate-pipe";
 
 
 /**
@@ -57,7 +58,7 @@ interface CompanyPoster {
 
 @Component({
   selector: 'app-single-project',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TruncatePipe],
   templateUrl: './single-project.html',
   styleUrl: './single-project.scss',
 })
