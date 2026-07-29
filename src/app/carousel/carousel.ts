@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { LanguageService } from '../services/language-service';
+import { TruncatePipe } from "../truncate-pipe";
 
 interface Story {
   nameKey: string;
@@ -17,7 +18,7 @@ interface Story {
 
 @Component({
   selector: 'app-carousel',
-  imports: [],
+  imports: [TruncatePipe],
   templateUrl: './carousel.html',
   styleUrl: './carousel.scss',
 })

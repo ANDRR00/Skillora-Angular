@@ -72,7 +72,7 @@
           <path d="M7.17 6C4.87 6 3 7.87 3 10.17c0 2.3 1.87 4.17 4.17 4.17.4 0 .78-.06 1.15-.16C7.9 16.6 6.28 18.02 4 18.5v2.36c4.3-.55 7.17-3.86 7.17-8.7V6H7.17zm10 0c-2.3 0-4.17 1.87-4.17 4.17 0 2.3 1.87 4.17 4.17 4.17.4 0 .78-.06 1.15-.16-.42 2.42-2.04 3.84-4.32 4.32v2.36c4.3-.55 7.17-3.86 7.17-8.7V6h-4.17z"/>
         </svg>
 
-        <p class="quote-text" aria-live="polite" aria-atomic="true">{{ story.quote }}</p>
+        <p class="quote-text" aria-live="polite" aria-atomic="true">{{ story.quote | truncate:85 }}</p>
 
         <div class="result-card">
           <div class="result-icon" aria-hidden="true">{{ story.resultIcon }}</div>
